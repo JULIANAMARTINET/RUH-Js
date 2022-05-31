@@ -1,0 +1,10 @@
+.exito { margin: 10em;
+text-align: center; 
+background-color: nth($colores, 8 );
+padding: 5em;
+border-radius: 20px;
+
+@media screen and (max-width: 576px) {
+    margin: 6em 2em;
+    padding: 2em;
+}}

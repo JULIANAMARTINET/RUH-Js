@@ -1,0 +1,81 @@
+/* -------------------------------- nosotras -------------------------------- */
+
+.nos_portada {
+  max-width: 50em;
+  margin: auto;
+
+  h2 {
+    font-size: 2.5em;
+    text-align: center;
+    padding: 0.5em 0em;
+    border-bottom: 1px solid gray;
+    margin: 0.5em
+  }
+
+  .nos_portada_art {
+    justify-self: center;
+    padding: 1em 4em;
+    border-radius: 20px;
+
+    p {
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    @media screen and (max-width: 990px) {
+      width: 90%;
+      margin: auto;
+    }
+
+    @media screen and (max-width: 770px) {
+      width: 90%;
+      margin: auto;
+      padding: 0em;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+
+.descripcion-nos {
+  @include ubicacion (flex, "", center, column);
+
+  img {
+    width: 60%;
+    border-radius: 2%;
+    position: relative;
+    top: 3rem;
+    filter: grayscale(100%);
+    transition: all 0.5s;
+
+    &:hover {
+      filter: none;
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 576px) {
+      width: 80%;
+    }
+  }
+
+  .nos_text {
+    padding: 4em 3em 0em 3em;
+    margin: 0em 5em 1em 5em;
+    border: 3px solid nth($colores, 4);
+
+    @media screen and (max-width: 1200px) {
+      margin: 0em 3em 1em 3em
+    }
+
+    @media screen and (max-width: 576px) {
+      margin: 0em 0.5em 1em 0.5em;
+      padding: 4em 1em 0em 1em;
+      font-size: 14px;
+
+    }
+  }
+}
+
+/* ------------------------------ fin nosotras ------------------------------ */

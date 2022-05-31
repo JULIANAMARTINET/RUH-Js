@@ -1,0 +1,74 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Open+Sans:ital,wght@1,600&family=Poppins:wght@300;600&family=Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: justify;
+  background-color: rgba(247, 244, 239, 0.904);
+  font-size: 16px;
+}
+
+h2, h3, h4 { font-family: 'Poppins', sans-serif;}
+
+// variable colores 
+
+$colores:
+#747c58,
+rgb(243, 243, 225),
+rgb(219, 206, 161),
+#a3a59e77,
+rgb(148, 138, 138),
+#61584f,
+#e9e5d5,
+#575253;
+
+// Mapas
+
+$redes: (instagram: rgba(208, 34, 214, 0.973),
+  facebook: rgba(33, 108, 221, 0.973),
+);
+
+// extends 
+
+%boton {
+  background-color: nth($colores, 5);
+  border-radius: 5%;
+  color: white;
+  border: none;
+  transition: all 1s;
+
+  &:hover {
+    background-color: nth($colores, 3 );
+    color: white;
+    transform: scale(1.1);
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+%flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// mixins
+
+@mixin ubicacion ($tipo, $fila, $columna, $direction) {
+  display: $tipo;
+  justify-content: $fila;
+  align-items: $columna;
+  flex-direction: $direction;
+}
+
+.disclaimer { 
+  visibility: hidden; 
+}

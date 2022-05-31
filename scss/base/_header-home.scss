@@ -1,0 +1,136 @@
+/* --------------------------------- header --------------------------------- */
+
+#header-home {
+    z-index: 10;
+    position: sticky;
+    transition: 0.7s;
+    margin-top: 20px;
+    top: 0;
+    font-size: 1.3em;
+    background-color: transparent;
+
+    .barra {
+        @include ubicacion (flex, center, "center", "row");
+        max-width: 72rem;
+        margin: auto;
+
+        .logo {
+            position: relative;
+            right: 2em;
+            display: flex;
+
+            a {
+                color: transparent;
+
+                .logo-img {
+                    width: 4em;
+                    border-radius: 20%;
+                    padding: 0.5em;
+                    visibility: hidden;
+                }
+
+                .logo-portada {
+                    width: 5em;
+                    padding: 0.5em 0.5em 1em 0em;
+                }
+            }
+
+            h1 {
+                color: nth($colores, 3);
+                font-family: 'Raleway', sans-serif;
+                font-size: 3em;
+                font-weight: unset;
+                align-self: center;
+            }
+        }
+    }
+
+    &.down {
+        background-color: nth($colores, 1);
+        font-size: 1rem;
+
+        .logo {
+            right: 0;
+
+
+            a .logo-img {
+                visibility: visible;
+            }
+
+            .logo-portada {
+                display: none;
+            }
+
+            h1 {
+                color: nth($colores, 3);
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.8em;
+                font-weight: unset;
+                align-self: center;
+            }
+        }
+
+        .dropdown-menu {
+            background-color: nth($colores, 1)
+        }
+    }
+
+    /* ------------------------------- inicio nav ------------------------------- */
+    .navbar {
+        box-shadow: 0 0 5px 0 rgb(221, 215, 215);
+        z-index: 10;
+        padding: 0px;
+        position: relative;
+        top: 0;
+        transition: top 0.3s;
+    }
+
+    .button-nav {
+        background-color: nth($colores, 2);
+        color: nth($colores, 4);
+    }
+
+    .navbar-collapse {
+        justify-content: center;
+    }
+
+    .navbar-nav li:hover ul {
+        display: block;
+    }
+
+    .nav-link {
+        color: nth($colores, 2) !important;
+        font-size: 1.2em;
+        --clippy: polygon(0 0, 0 0, 0 98%, 0% 100%);
+    }
+
+    .nav-link::after {
+        content: "";
+        display: block;
+        background-color: white;
+        width: 90%;
+        margin-top: 3px;
+        height: 3px;
+        clip-path: var(--clippy);
+        transition: clip-path .5s;
+    }
+
+    .nav-link:hover {
+        color: nth($colores, 4);
+        --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .dropdown-menu {
+        background-color: transparent
+    }
+
+    .navbar-toggler {
+        margin: .25em
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 12px;
+    }
+}
+
+/* ------------------------------- fin nav ------------------------------- */

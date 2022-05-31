@@ -1,0 +1,95 @@
+/* --------------------------------- header --------------------------------- */
+
+header {
+    z-index: 10;
+    background-color: nth($colores, 1);
+    position: sticky;
+    top: 0;
+    font-size: 1em;
+
+    .barra {
+        @include ubicacion (flex, center, "center", "row");
+        max-width: 72rem;
+        margin: auto;
+
+        .logo {
+            display: flex;
+
+            .logo-img {
+                width: 4em;
+                border-radius: 20%;
+                padding: 0.5em;
+            }
+
+            h1 {
+                color: nth($colores, 3);
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.8em;
+                font-weight: unset;
+                align-self: center;
+            }
+        }
+    }
+
+    /* ------------------------------- inicio nav ------------------------------- */
+    .navbar {
+        box-shadow: 0 0 5px 0 rgb(221, 215, 215);
+        z-index: 10;
+        padding: 0px;
+        position: relative;
+        top: 0;
+    }
+
+    .button-nav {
+        background-color: nth($colores, 2);
+        color: gray;
+    }
+
+    .navbar-collapse {
+        justify-content: center;
+    }
+
+    .navbar-nav li:hover ul {
+        display: block;
+    }
+
+    .nav-link {
+        color: nth($colores, 2) !important;
+        font-size: 1.2em;
+        --clippy: polygon(0 0, 0 0, 0 98%, 0% 100%);
+    }
+
+    .nav-link::after {
+        content: "";
+        display: block;
+        background-color: white;
+        width: 90%;
+        margin-top: 3px;
+        height: 3px;
+        clip-path: var(--clippy);
+        transition: clip-path .5s;
+    }
+
+    .nav-link:hover {
+        color: rgb(37, 36, 36);
+        --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .dropdown-menu {
+        background-color: nth($colores, 1)
+    }
+
+    .dropdown-item {
+        color: nth($colores, 2);
+    }
+
+    .navbar-toggler {
+        margin: .25rem
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 12px;
+    }
+}
+
+/* ------------------------------- fin nav ------------------------------- */

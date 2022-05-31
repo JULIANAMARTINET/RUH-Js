@@ -1,0 +1,55 @@
+ /* -------------------------------- Productos ------------------------------- */
+
+ .tit-productos {
+   max-width: 1140px;
+   margin: auto;
+
+   h2 {
+     font-size: 2.5em;
+     text-align: center;
+     padding: 0.5em 0em;
+     border-bottom: 1px solid gray;
+     margin: 1em
+   }
+
+   @media screen and (max-width: 576px) {
+     font-size: 14px;
+   }
+ }
+
+ .categoria-productos {
+   margin: 2em 2em 0em 2em;
+   padding: 0.5em 2em;
+   background-color: nth($colores, 7);
+   color: nth($colores, 6);
+   border-radius: 20px;
+   text-align: start;
+
+   @media screen and (max-width: 575px) {
+     text-align: center;
+     margin: 0em;
+     font-size: 20px;
+   }
+ }
+
+ .card-row {
+   @media screen and (max-width: 991px) {
+     justify-content: center
+   }
+
+   .cont-card {
+     @media screen and (max-width: 575px) {
+       justify-content: center;
+     }
+   }
+
+   .card-home {
+     @media screen and (max-width: 575px) {
+       margin: 0rem 2rem;
+       width: 70%;
+       height: auto;
+     }
+   }
+ }
+
+ /* ------------------------------ fin productos ----------------------------- */
