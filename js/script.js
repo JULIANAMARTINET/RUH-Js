@@ -72,10 +72,10 @@ if (producto2 == "Velas Aromaticas") {
    producto2 = 20
  } else alert("operacion incorrecta")
 
- exit = prompt("escribe ESC para finalizar la compra")
+ exit = prompt("Escribe ESC para finalizar la compra")
 }
  
 
 let precioCompra = suma(multiplicar(producto1, cantProd1), multiplicar(producto2, cantProd2));
-alert("El total de su compra es de " + precioCompra)
+alert("El total de su compra es de $" + precioCompra)
 
