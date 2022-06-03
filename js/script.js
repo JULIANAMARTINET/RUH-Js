@@ -51,11 +51,11 @@ function carrito() {
   switch (producto) {
     case "Velas Aromaticas":
       precioCompra = cantidad * 60;
-      acumulador = acumulador + precioCompra
+      acumulador += precioCompra
     return alert("El total de su compra es de $" + acumulador);
     case "Sahumerios":
       precioCompra = cantidad * 20;
-      acumulador = acumulador + precioCompra
+      acumulador += precioCompra
      return alert("El total de su compra es de $ " + acumulador);
     default:
       return alert("operacion incorrecta") 
