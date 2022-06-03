@@ -3,21 +3,21 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("down", window.scrollY > 0);
 })
 
-document.addEventListener('DOMContentLoaded', function () {
-  new Splide('#thumbnail-carousel', {
-    //   fixedWidth : 200,
-    gap: 3,
-    rewind: true,
-    pagination: false,
-    perMove: 1,
-    type: 'loop',
-    focus: 2 | 'center',
-    perPage: 4,
-    speed: 400,
-    autoplay: true,
-    interval: 3000
-  }).mount();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   new Splide('#thumbnail-carousel', {
+//     //   fixedWidth : 200,
+//     gap: 3,
+//     rewind: true,
+//     pagination: false,
+//     perMove: 1,
+//     type: 'loop',
+//     focus: 2 | 'center',
+//     perPage: 4,
+//     speed: 400,
+//     autoplay: true,
+//     interval: 3000
+//   }).mount();
+// });
 
 // -- Desafio --
 
@@ -45,37 +45,30 @@ if (contraseña != 1234)
   alert("Ha superado la cantidad de intentos, su cuenta ha sido bloqueada")
 
 
-const suma = (n1, n2) => n1 + n2
-const multiplicar = (n1, n2) => n1 * n2
+let acumulador = 0;
 
-let producto2= " "
-let cantProd2 = " ";
-
-let producto1 = prompt("¿Que producto te gustaria comprar? \n Velas Aromaticas ($60),\n Sahumerios($20)")
-let cantProd1 = prompt("¿Que cantidad de " + producto1 + " queres?")
-if (producto1 == "Velas Aromaticas") {
- producto1 = 60
-} else if (producto1 == "Sahumerios") {
-  producto1 = 20
-} else alert("operacion incorrecta")
-
- let exit = (prompt("Te gustaria sumar otro producto a tu carrito? \n escribe SI si desea continuar o escriba ESC para finalizar la compra"))
-
-while (exit != "ESC") {
-
- producto2 = prompt("¿Que producto te gustaria agregar? \n Velas Aromatica ($60),\n Sahumerios ($20)")
- cantProd2 = prompt("¿Que cantidad de " + producto2 + " queres?")
-
-if (producto2 == "Velas Aromaticas") {
-  producto2 = 60
- } else if (producto2 == "Sahumerios") {
-   producto2 = 20
- } else alert("operacion incorrecta")
-
- exit = prompt("Escribe ESC para finalizar la compra")
+function carrito() {
+  switch (producto) {
+    case "Velas Aromaticas":
+      precioCompra = cantidad * 60;
+      acumulador = acumulador + precioCompra
+    return alert("El total de su compra es de $" + acumulador);
+    case "Sahumerios":
+      precioCompra = cantidad * 20;
+      acumulador = acumulador + precioCompra
+     return alert("El total de su compra es de $ " + acumulador);
+    default:
+      return alert("operacion incorrecta") 
+  }
 }
- 
 
-let precioCompra = suma(multiplicar(producto1, cantProd1), multiplicar(producto2, cantProd2));
-alert("El total de su compra es de $" + precioCompra)
+while (true) {
+  producto = prompt("¿Qué producto te gustaria agregar al carrito? \n Velas Aromaticas ($60), \n Sahumerios (20)")
+  cantidad = prompt("¿Qué cantidad de " + producto + " queres?")
+  carrito(producto)
+  let exit = prompt("¿Quieres seguir comprando? \n Escriba \n Si - Para continuar \n ESC - Para finalizar la compra")
+  if (exit == "ESC") {
+    break;
+  }
+}
 
