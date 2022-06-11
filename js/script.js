@@ -45,22 +45,25 @@ for (i = 2; i >= 1; i--) {
 if (contraseña != 1234)
   alert("Ha superado la cantidad de intentos, su cuenta ha sido bloqueada");
 
-// Detalle de productos
+//    Detalle de productos
+//  class Producto {
+//    constructor (nombre, precio) {
+//      this.nombre = nombre.toUpperCase();
+//      this.precio = parceFloat(precio);
+//    }
+//  }
+//  const productos = [];
+//  productos.push (new Producto("VELAS AROMATICAS", 60));
+//  productos.push (new Producto("SAHUMERIO", 20));
 
-const productos = [
-  { id: 1, producto: "VELAS AROMATICAS", precio: 60 },
-  { id: 2, producto: "SAHUMERIOS", precio: 20 },
-];
 
-for (const producto of productos) {
-  console.log(producto.producto);
-}
 
 // Carrito de compras
 
 let acumulador = 0;
 
 function carrito() {
+
   switch (producto) {
     case "VELAS AROMATICAS":
       precioCompra = cantidad * 60;
@@ -75,11 +78,17 @@ function carrito() {
   }
 }
 
+let productos = [
+  {nombre: "Velas Aromaticas", precio: 60},
+  {nombre: "Sahumerios", precio: 20}
+]
+
 while (true) {
+  let nombres = productos.map(elemento => elemento.nombre);
+
   producto = prompt(
-    "¿Qué producto te gustaria agregar al carrito? \n VELAS AROMATICAS ($60), \n SAHUMERIOS ($20)"
-  ).toUpperCase();
-  cantidad = prompt("¿Qué cantidad de " + producto + " queres?");
+    "¿Qué producto te gustaria agregar al carrito? \n" + nombres.join(" \n ")).toUpperCase();
+  cantidad = prompt("¿Qué cantidad de " + producto +  " queres?");
   carrito(producto);
   let exit = prompt(
     "¿Quieres seguir comprando? \n Escriba \n SI - Para continuar \n ESC - Para finalizar la compra"
@@ -88,3 +97,8 @@ while (true) {
     break;
   }
 }
+
+
+
+
+ 
