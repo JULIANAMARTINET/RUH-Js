@@ -15,19 +15,19 @@ h2, h3, h4 {
   font-family: "Poppins", sans-serif;
 }
 
-.container-img .evento-descripcion figure .btn, .body-home .home-nosotras .btn.nos, .body-home .container .card-home .btn, .body-home .container .productos-text .btn {
+.container-img .evento-descripcion figure .btn, .productos__card div .card .btn, .body-home .home-nosotras .btn.nos, .body-home .container .card-home .btn, .body-home .container .productos-text .btn {
   background-color: rgb(148, 138, 138);
   border-radius: 5%;
   color: white;
   border: none;
   transition: all 1s;
 }
-.container-img .evento-descripcion figure .btn:hover, .body-home .home-nosotras .btn.nos:hover, .body-home .container .card-home .btn:hover, .body-home .container .productos-text .btn:hover {
+.container-img .evento-descripcion figure .btn:hover, .productos__card div .card .btn:hover, .body-home .home-nosotras .btn.nos:hover, .body-home .container .card-home .btn:hover, .body-home .container .productos-text .btn:hover {
   background-color: rgb(219, 206, 161);
   color: white;
   transform: scale(1.1);
 }
-.container-img .evento-descripcion figure .btn a, .body-home .home-nosotras .btn.nos a, .body-home .container .card-home .btn a, .body-home .container .productos-text .btn a {
+.container-img .evento-descripcion figure .btn a, .productos__card div .card .btn a, .body-home .home-nosotras .btn.nos a, .body-home .container .card-home .btn a, .body-home .container .productos-text .btn a {
   text-decoration: none;
   color: white;
 }
@@ -51,28 +51,51 @@ header {
   font-size: 1em;
   /* ------------------------------- inicio nav ------------------------------- */
 }
-header .barra {
+header .row {
+  max-width: 72rem;
+  margin: auto;
+}
+header .row .logo {
   display: flex;
   justify-content: center;
   align-items: "center";
   flex-direction: "row";
-  max-width: 72rem;
-  margin: auto;
+  padding-left: 10em;
 }
-header .barra .logo {
-  display: flex;
-}
-header .barra .logo .logo-img {
+header .row .logo .logo-img {
   width: 4em;
   border-radius: 20%;
   padding: 0.5em;
 }
-header .barra .logo h1 {
+header .row .logo h1 {
   color: rgb(219, 206, 161);
   font-family: "Raleway", sans-serif;
   font-size: 1.8em;
   font-weight: unset;
   align-self: center;
+}
+header .row #cuenta {
+  display: flex;
+}
+header .row #cuenta #inicio {
+  color: rgb(243, 243, 225);
+  align-self: center;
+  margin-bottom: 0.1em;
+}
+header .row #cuenta #boton-carrito {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding: 0.5em;
+}
+header .row #cuenta #boton-carrito .logo-carrito {
+  width: 70%;
+  padding-right: 0.2em;
+  align-self: center;
+}
+header .row #cuenta #boton-carrito #contadorCarrito {
+  align-self: center;
+  color: rgb(243, 243, 225);
 }
 header .navbar {
   box-shadow: 0 0 5px 0 rgb(221, 215, 215);
@@ -138,10 +161,6 @@ header .navbar-toggler {
   /* ------------------------------- inicio nav ------------------------------- */
 }
 #header-home .barra {
-  display: flex;
-  justify-content: center;
-  align-items: "center";
-  flex-direction: "row";
   max-width: 72rem;
   margin: auto;
 }
@@ -149,6 +168,10 @@ header .navbar-toggler {
   position: relative;
   right: 2em;
   display: flex;
+  justify-content: center;
+  align-items: "center";
+  flex-direction: "row";
+  padding-left: 10em;
 }
 #header-home .barra .logo a {
   color: transparent;
@@ -170,6 +193,30 @@ header .navbar-toggler {
   font-weight: unset;
   align-self: center;
 }
+#header-home .barra #cuenta {
+  visibility: hidden;
+  display: flex;
+}
+#header-home .barra #cuenta #inicio {
+  color: rgb(243, 243, 225);
+  align-self: center;
+  margin-bottom: 0.1em;
+}
+#header-home .barra #cuenta #boton-carrito {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding: 0.5em;
+}
+#header-home .barra #cuenta #boton-carrito .logo-carrito {
+  width: 70%;
+  padding-right: 0.2em;
+  align-self: center;
+}
+#header-home .barra #cuenta #boton-carrito #contadorCarrito {
+  align-self: center;
+  color: rgb(243, 243, 225);
+}
 #header-home.down {
   background-color: #747c58;
   font-size: 1rem;
@@ -189,6 +236,9 @@ header .navbar-toggler {
   font-size: 1.8em;
   font-weight: unset;
   align-self: center;
+}
+#header-home.down #cuenta {
+  visibility: visible;
 }
 #header-home.down .dropdown-menu {
   background-color: #747c58;
@@ -609,22 +659,52 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   }
 }
 
-@media screen and (max-width: 991px) {
-  .card-row {
-    justify-content: center;
-  }
+.productos__card {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-@media screen and (max-width: 575px) {
-  .card-row .cont-card {
-    justify-content: center;
-  }
+.productos__card div {
+  width: 25%;
 }
-@media screen and (max-width: 575px) {
-  .card-row .card-home {
-    margin: 0rem 2rem;
-    width: 70%;
-    height: auto;
-  }
+.productos__card div .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+.productos__card div .card img {
+  padding-bottom: 1em;
+}
+.productos__card div .card .card-text {
+  text-align: center;
+}
+#carrito-contenedor .img-carrito {
+  object-fit: cover;
+  height: 100%;
+}
+#carrito-contenedor .card-detalle {
+  padding: 0em 1em;
+}
+#carrito-contenedor .card-detalle .card-title {
+  font-weight: 700;
+  border-bottom: 1px gray solid;
+  text-align: start;
+}
+#carrito-contenedor .card-detalle .card-text {
+  margin-bottom: 0.2em;
+}
+#carrito-contenedor .eliminar {
+  align-self: center;
+  background-color: rgb(219, 206, 161);
+  border: none;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ------------------------------ fin productos ----------------------------- */

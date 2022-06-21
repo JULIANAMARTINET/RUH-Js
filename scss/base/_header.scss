@@ -7,13 +7,13 @@ header {
     top: 0;
     font-size: 1em;
 
-    .barra {
-        @include ubicacion (flex, center, "center", "row");
+    .row {
         max-width: 72rem;
         margin: auto;
 
         .logo {
-            display: flex;
+            @include ubicacion (flex, center, "center", "row");
+            padding-left: 10em;
 
             .logo-img {
                 width: 4em;
@@ -27,6 +27,34 @@ header {
                 font-size: 1.8em;
                 font-weight: unset;
                 align-self: center;
+            }
+        }
+
+        #cuenta {
+            display: flex;
+
+            #inicio {
+                color: nth($colores, 2);
+                align-self: center;
+                margin-bottom: 0.1em;
+            }
+
+            #boton-carrito {
+                display: flex;
+                justify-content: center;
+                width: 30%;
+                padding: 0.5em;
+
+                .logo-carrito {
+                    width: 70%;
+                    padding-right: 0.2em;
+                    align-self: center;
+                }
+
+                #contadorCarrito {
+                    align-self: center;
+                    color: nth($colores, 2);
+                }
             }
         }
     }

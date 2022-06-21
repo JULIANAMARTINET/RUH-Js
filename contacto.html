@@ -30,13 +30,22 @@
     <!-- header -->
 
     <header>
-        <div class="barra">
-            <div class="logo">
-                <a href="index.html"> <img src="logos/logo-ovalado.png" alt="Logo" class="logo-img"></a>
+        <div class="row barra">
+            <div class="col-md-10 logo">
+                <a href="index.html">
+                    <img src="logos/logo-ovalado.png" alt="Logo" class="logo-img" /></a>
                 <h1>Ruh - Esencia</h1>
             </div>
+            <div class="col-md-2 justify-content-end" id="cuenta">
+                <p id="inicio">Iniciar Sesion |</p>
+                <button id="boton-carrito" class="btn" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="logos/carrito.svg" alt="Carrito de compras" class="logo-carrito"> <i
+                        class="fas fa-shopping-cart">
+                    </i><span id="contadorCarrito">0</span>
+                </button>
+            </div>
         </div>
-
         <!-- nav  -->
 
         <nav class="navbar navbar-expand-lg navbar-light">

@@ -10,14 +10,14 @@
     background-color: transparent;
 
     .barra {
-        @include ubicacion (flex, center, "center", "row");
         max-width: 72rem;
         margin: auto;
 
         .logo {
             position: relative;
             right: 2em;
-            display: flex;
+            @include ubicacion (flex, center, "center", "row");
+            padding-left: 10em;
 
             a {
                 color: transparent;
@@ -43,6 +43,35 @@
                 align-self: center;
             }
         }
+
+        #cuenta {
+            visibility: hidden;
+            display: flex;
+
+            #inicio {
+                color: nth($colores, 2);
+                align-self: center;
+                margin-bottom: 0.1em;
+            }
+
+            #boton-carrito {
+                display: flex;
+                justify-content: center;
+                width: 30%;
+                padding: 0.5em;
+
+                .logo-carrito {
+                    width: 70%;
+                    padding-right: 0.2em;
+                    align-self: center;
+                }
+
+                #contadorCarrito {
+                    align-self: center;
+                    color: nth($colores, 2);
+                }
+            }
+        }
     }
 
     &.down {
@@ -51,7 +80,6 @@
 
         .logo {
             right: 0;
-
 
             a .logo-img {
                 visibility: visible;
@@ -68,6 +96,10 @@
                 font-weight: unset;
                 align-self: center;
             }
+        }
+
+        #cuenta {
+            visibility: visible;
         }
 
         .dropdown-menu {

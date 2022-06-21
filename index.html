@@ -35,14 +35,24 @@
     <!--  header  -->
 
     <header id="header-home">
-        <div class="barra">
-            <div class="logo">
+        <div class="row barra">
+            <div class="col-md-10  logo">
                 <a href="index.html"> <img src="logos/logo-ovalado.png" alt="Logo" class="logo-img">
                     <img src="logos/logo-index.png" alt="Logo" class="logo-portada"></a>
                 <h1>Ruh - Esencia</h1>
             </div>
+            <div class="col-md-2 justify-content-end" id="cuenta">
+                <p id="inicio">Iniciar Sesion | </p>
+                <button id="boton-carrito" class="btn" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="logos/carrito.svg" alt="Carrito de compras" class="logo-carrito"> <i
+                        class="fas fa-shopping-cart">
+                    </i><span id="contadorCarrito">0</span>
+                </button>
+            </div>
         </div>
 
+    
         <!-- nav  -->
 
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -62,12 +72,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="productos.html">Productos</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="productos.html#sahumerios">Sahumerios</a></li>
-                                    <li><a class="dropdown-item" href="productos.html#sahumos">Sahumos y Defumadores</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="productos.html#velas">Velas</a></li>
-                                </ul>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="productos.html#sahumerios">Sahumerios</a></li>
+                                <li><a class="dropdown-item" href="productos.html#sahumos">Sahumos y Defumadores</a>
+                                </li>
+                                <li><a class="dropdown-item" href="productos.html#velas">Velas</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="mayorista.html">Mayorista</a>
@@ -228,6 +238,7 @@
             </article>
         </section>
 
+
         <!-- footer -->
 
         <footer>
@@ -284,6 +295,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="js/script.js"></script>
+    <script src="js/productos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@1.3.3/dist/js/splide.min.js"></script>
     <div class="disclaimer"></div>
 
