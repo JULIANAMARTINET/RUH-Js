@@ -37,8 +37,7 @@
                     <img src="logos/logo-ovalado.png" alt="Logo" class="logo-img" /></a>
                 <h1>Ruh - Esencia</h1>
             </div>
-            <div class="col-md-2 justify-content-end" id="cuenta">
-                <p id="inicio">Iniciar Sesion |</p>
+            <div class="col-md-2 d-flex align-items-center justify-content-end">
                 <button id="boton-carrito" class="btn" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <img src="logos/carrito.svg" alt="Carrito de compras" class="logo-carrito"> <i
@@ -102,93 +101,92 @@
 
     <div id="contenedor-productos" class="productos__card"></div>
 
-        <!--  
+    <!--  
             <h3 class="categoria-productos" id="sahumerios">* Sahumerios</h3>
             <h3 class="categoria-productos" id="sahumos">* Sahumos y Defumadores</h3>
             <h3 class="categoria-productos" id="velas">* Velas Aromáticas</h3>
              -->
-          
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Carrito de Compras</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body productos__carrito" id="carrito-contenedor"></div>
-            <p class="totalCarrito">
-                Precio total: $<span id="totalPrecioCarrito">0</span>
-            </p>
-            <div class="botonCarrito">
-                <button id="pagarCarrito" type="button" class="btn">
-                    Pagar
-                </button>
-                <button id="vaciarCarrito" type="button" class="btn">
-                    Vaciar carrito
-                </button>
-            </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <div class="offcanvas-body productos__carrito" id="carrito-contenedor"></div>
+        <p class="totalCarrito">
+            Precio total: $<span id="totalPrecioCarrito">0</span>
+        </p>
+        <div class="botonCarrito">
+            <button id="pagarCarrito" type="button" class="btn">
+                Pagar
+            </button>
+            <button id="vaciarCarrito" type="button" class="btn">
+                Vaciar carrito
+            </button>
+        </div>
+    </div>
 
-        <!-- footer  -->
+    <!-- footer  -->
 
-        <footer>
-            <section class="foot">
-                <nav class="botonera_f">
-                    <div class="botonera_f_tit">Categoria</div>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="nosotras.html">Nosotras</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="mayorista.html">Mayorista</a></li>
-                        <li><a href="info.html">+ Info</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </nav>
+    <footer>
+        <section class="foot">
+            <nav class="botonera_f">
+                <div class="botonera_f_tit">Categoria</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="nosotras.html">Nosotras</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="mayorista.html">Mayorista</a></li>
+                    <li><a href="info.html">+ Info</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
 
-                <section class="redes">
-                    <div class="redes_tit">Sigamos conectados</div>
-                    <div class="redes_iconos">
-                        <a href="https://www.instagram.com/ruh.esencia/" target="_blank" class="redes_link1">
-                            <img src="logos/Insta-logo.png" alt="Instagram" class="redes-img" />
-                        </a>
-                        <a href="https://www.facebook.com" target="_blank" class="redes_link1">
-                            <img src="logos/Face-logo.png" alt="Facebook" class="redes-img" /></a>
-                    </div>
-                    <div class="logo-f">
-                        <p class="logo-tit-f">| Ruh - Esencia |</p>
-                    </div>
-                </section>
-
-                <section class="foot_contacto">
-                    <div class="foot_contacto_tit">Contactanos</div>
-                    <div class="box-contacto">
-                        <article class="foot_contacto_iconos">
-                            <img src="logos/wa-icono.svg" alt="wa" class="icono" />
-                            <a href="https://api.whatsapp.com/send?phone=0123456789">+54 9 3512297942</a>
-                        </article>
-                        <article class="foot_contacto_iconos">
-                            <img src="logos/mail-icono.svg" alt="Gmail" class="icono" />
-                            <a href="mailto:ruh.esencia@gmail.com">ruh.esencia@gmail.com</a>
-                        </article>
-                        <article class="foot_contacto_iconos">
-                            <img src="logos/ubicacion-icono.svg" alt="Ubicación" class="icono" />
-                            <a
-                                href="https://www.google.com/maps/place/Av.+Recta+Martinolli+7759,+X5147HZA+Córdoba,+Argentina/@-31.347668,-64.268204,15z/data=!4m5!3m4!1s0x94329e9fa656daa5:0x76881781dbca37b8!8m2!3d-31.3476676!4d-64.2682043?hl=es-419">Recta
-                                Martinolli 7759</a>
-                        </article>
-                    </div>
-                </section>
+            <section class="redes">
+                <div class="redes_tit">Sigamos conectados</div>
+                <div class="redes_iconos">
+                    <a href="https://www.instagram.com/ruh.esencia/" target="_blank" class="redes_link1">
+                        <img src="logos/Insta-logo.png" alt="Instagram" class="redes-img" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" class="redes_link1">
+                        <img src="logos/Face-logo.png" alt="Facebook" class="redes-img" /></a>
+                </div>
+                <div class="logo-f">
+                    <p class="logo-tit-f">| Ruh - Esencia |</p>
+                </div>
             </section>
-        </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-        </script>
-        <script src="js/script.js"></script>
-        <script src="js/productos.js"></script>
-        <div class="disclaimer"></div>
+            <section class="foot_contacto">
+                <div class="foot_contacto_tit">Contactanos</div>
+                <div class="box-contacto">
+                    <article class="foot_contacto_iconos">
+                        <img src="logos/wa-icono.svg" alt="wa" class="icono" />
+                        <a href="https://api.whatsapp.com/send?phone=0123456789">+54 9 3512297942</a>
+                    </article>
+                    <article class="foot_contacto_iconos">
+                        <img src="logos/mail-icono.svg" alt="Gmail" class="icono" />
+                        <a href="mailto:ruh.esencia@gmail.com">ruh.esencia@gmail.com</a>
+                    </article>
+                    <article class="foot_contacto_iconos">
+                        <img src="logos/ubicacion-icono.svg" alt="Ubicación" class="icono" />
+                        <a
+                            href="https://www.google.com/maps/place/Av.+Recta+Martinolli+7759,+X5147HZA+Córdoba,+Argentina/@-31.347668,-64.268204,15z/data=!4m5!3m4!1s0x94329e9fa656daa5:0x76881781dbca37b8!8m2!3d-31.3476676!4d-64.2682043?hl=es-419">Recta
+                            Martinolli 7759</a>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+    <script src="js/productos.js"></script>
+    <div class="disclaimer"></div>
 </body>
 
 </html>

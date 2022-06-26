@@ -44,14 +44,23 @@
             }
         }
 
-        #cuenta {
+        .cuenta {
             visibility: hidden;
             display: flex;
 
-            #inicio {
+            .botonLogin {
                 color: nth($colores, 2);
                 align-self: center;
                 margin-bottom: 0.1em;
+                cursor: pointer;
+
+                p {
+                    margin-bottom: 0em
+                }
+            }
+
+            .login--borrar {
+                display: none;
             }
 
             #boton-carrito {

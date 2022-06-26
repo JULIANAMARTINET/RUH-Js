@@ -74,26 +74,18 @@ header .row .logo h1 {
   font-weight: unset;
   align-self: center;
 }
-header .row #cuenta {
+header .row #boton-carrito {
   display: flex;
-}
-header .row #cuenta #inicio {
-  color: rgb(243, 243, 225);
-  align-self: center;
-  margin-bottom: 0.1em;
-}
-header .row #cuenta #boton-carrito {
-  display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   width: 30%;
   padding: 0.5em;
 }
-header .row #cuenta #boton-carrito .logo-carrito {
-  width: 70%;
+header .row #boton-carrito .logo-carrito {
+  width: 80%;
   padding-right: 0.2em;
   align-self: center;
 }
-header .row #cuenta #boton-carrito #contadorCarrito {
+header .row #boton-carrito #contadorCarrito {
   align-self: center;
   color: rgb(243, 243, 225);
 }
@@ -193,27 +185,34 @@ header .navbar-toggler {
   font-weight: unset;
   align-self: center;
 }
-#header-home .barra #cuenta {
+#header-home .barra .cuenta {
   visibility: hidden;
   display: flex;
 }
-#header-home .barra #cuenta #inicio {
+#header-home .barra .cuenta .botonLogin {
   color: rgb(243, 243, 225);
   align-self: center;
   margin-bottom: 0.1em;
+  cursor: pointer;
 }
-#header-home .barra #cuenta #boton-carrito {
+#header-home .barra .cuenta .botonLogin p {
+  margin-bottom: 0em;
+}
+#header-home .barra .cuenta .login--borrar {
+  display: none;
+}
+#header-home .barra .cuenta #boton-carrito {
   display: flex;
   justify-content: center;
   width: 30%;
   padding: 0.5em;
 }
-#header-home .barra #cuenta #boton-carrito .logo-carrito {
+#header-home .barra .cuenta #boton-carrito .logo-carrito {
   width: 70%;
   padding-right: 0.2em;
   align-self: center;
 }
-#header-home .barra #cuenta #boton-carrito #contadorCarrito {
+#header-home .barra .cuenta #boton-carrito #contadorCarrito {
   align-self: center;
   color: rgb(243, 243, 225);
 }
@@ -1099,6 +1098,87 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
     margin: 6em 2em;
     padding: 2em;
   }
+}
+
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.377);
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+.login--show {
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity 0.6s;
+}
+
+.login-container {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  max-width: 50em;
+  max-height: 90%;
+  border-radius: 6px;
+  padding: 1em 1em 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 1fr;
+}
+.login-container .contacto-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: "";
+  flex-direction: column;
+}
+.login-container .contacto-form .login-title {
+  font-size: 2em;
+  padding-bottom: 1.5em;
+  padding-top: 0.5em;
+  text-align: center;
+}
+.login-container .contacto-form .form-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: "";
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+.login-container .contacto-form .form-row label {
+  margin-bottom: 0.5em;
+}
+.login-container .contacto-form .form-check {
+  margin-bottom: 2em;
+}
+.login-container .contacto-form .login-btn {
+  color: white;
+  background-color: rgb(219, 206, 161);
+  padding: 0.8em 3em;
+  border-radius: 6px;
+  border: 1px solid white;
+  text-align: center;
+}
+.login-container .login-close {
+  display: flex;
+  justify-content: "";
+  align-items: "end";
+  flex-direction: column;
+}
+.login-container .login-close .cerrar {
+  display: flex;
+  justify-content: space-between;
+}
+.login-container .login-img {
+  width: 100%;
+  padding-right: 1.5em;
+  padding-top: 0.8em;
 }
 
 /*# sourceMappingURL=style.css.map */

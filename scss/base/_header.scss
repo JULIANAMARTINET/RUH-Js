@@ -30,31 +30,22 @@ header {
             }
         }
 
-        #cuenta {
+        #boton-carrito {
             display: flex;
+            justify-content: flex-end;
+            
+            width: 30%;
+            padding: 0.5em;
 
-            #inicio {
-                color: nth($colores, 2);
+            .logo-carrito {
+                width: 80%;
+                padding-right: 0.2em;
                 align-self: center;
-                margin-bottom: 0.1em;
             }
 
-            #boton-carrito {
-                display: flex;
-                justify-content: center;
-                width: 30%;
-                padding: 0.5em;
-
-                .logo-carrito {
-                    width: 70%;
-                    padding-right: 0.2em;
-                    align-self: center;
-                }
-
-                #contadorCarrito {
-                    align-self: center;
-                    color: nth($colores, 2);
-                }
+            #contadorCarrito {
+                align-self: center;
+                color: nth($colores, 2);
             }
         }
     }

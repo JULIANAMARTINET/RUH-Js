@@ -5,11 +5,9 @@ class Producto {
     this.precio = precio;
     this.img = img;
     this.cantidad = 1;
-    this.inPortfolio = false;
   }
   addToPorfolio() {
     this.cantidad++;
-    this.inPortfolio = true;
   }
   actualizarPrecioTotal() {
     this.totalPrecio = this.precio * this.cantidad;
@@ -59,15 +57,13 @@ stockProductos.forEach((producto) => {
         <p class="card-title">${producto.nombre} </p>
         <p class="card-text">$ ${producto.precio}</p>
         <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-  </figure> 
-  `
-  contenedorProductos.appendChild(card);
+  </figure> `
 
+  contenedorProductos.appendChild(card);
   const boton = document.getElementById(`p${producto.id}`)
   boton.addEventListener("click", () => {
     agregarAlCarrito(producto.id)
   })
-
 })
 
 // Funcion argegar al carrito
@@ -82,7 +78,6 @@ const agregarAlCarrito = (productoId) => {
     let newProducto = stockProductos.find((producto) => producto.id === productoId);
     carrito.push(newProducto);
     carrito[carrito.length - 1].actualizarPrecioTotal();
-
   }
   actualizarCarrito()
 }
@@ -100,15 +95,17 @@ vaciarCarrito.addEventListener('click', () => {
 })
 
 // Funcion pagar carrito
+
 pagarCarrito.addEventListener('click', () => {
   alert(`Tu compra total es de $${totalCarrito}. Gracias! 😄`);
   carrito.length = 0;
   actualizarCarrito()
 })
 
+// Funcion crear producto al carrito
+
 const actualizarCarrito = () => {
   contenedorCarrito.innerHTML = ""
-
   carrito.forEach((producto) => {
     let card = document.createElement("div")
     card.innerHTML = `
@@ -130,7 +127,6 @@ const actualizarCarrito = () => {
       </div>
     </figure  
     `
-
     contenedorCarrito.appendChild(card);
 
     const botonDelete = document.getElementById(`eliminar${producto.id}`)
@@ -145,4 +141,5 @@ const actualizarCarrito = () => {
 
   totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
   totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
-}
+}  
+

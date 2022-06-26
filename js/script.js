@@ -2,52 +2,49 @@
    let header = document.querySelector("#header-home");
    header.classList.toggle("down", window.scrollY > 0);
  })
- 
+
 // // -- Desafio --
 
 // // Inicio de sesion
 
-// let inicio = document.getElementById("inicio")
-// inicio.onclick = () => {
+const openSesion = document.querySelector("#inicio");
+const sesion = document.querySelector("#sesion")
+const closeSesion = document.querySelector("#close")
 
-// let usuario = prompt("Ingrese su nombre de usuario");
-// let contraseña = " ";
+// Clase para mostrar y cerrar MODAL 
 
-// while (usuario.toUpperCase() != "JULIANA") {
-//   alert("nombre de usuario incorrecto, vuelve a intentarlo");
-//   usuario = prompt("Ingrese su nombre de usuario");
-// }
+openSesion.addEventListener("click", (e) => {
+   e.preventDefault();
+ sesion.classList.add("login--show");
+});
+ 
+ closeSesion.addEventListener("click", (e) => {
+  e.preventDefault();
+   sesion.classList.remove("login--show");
+  });
+  
+  const botonAcceder = document.getElementById("acceder")
+  const nombreLogeado = document.getElementById("cambioLogeo")
+  const botonInicio = document.getElementById("inicio")
 
-// contraseña = prompt("Hola " + usuario + " Ingrese su contraseña");
+  // Validacion de sesion
 
-// for (i = 2; i >= 1; i--) {
-//   if (contraseña == 1234) {
-//     alert("Bienvenido/a " + usuario);
-//     break;
-//   }
-//   alert("contraseña incorrecta, le quedan " + i + " intentos");
-//   contraseña = prompt("Hola " + usuario + " Ingrese su contraseña");
-// }
+  botonAcceder.addEventListener("click", () => {  
+     let usuario = document.querySelector('#usuario').value;
+     let contraseña = document.querySelector('#password').value;
 
-// if (contraseña != 1234)
-//   alert("Ha superado la cantidad de intentos, su cuenta ha sido bloqueada");
-// }
+     if ((usuario.toUpperCase() == "JULIANA") && (contraseña === "1234"))  {
 
-
-
-// let usuario; 
-
-// let usuarioStorage = localStorage.getItem("user");
-
-// if(usuarioStorage) {  
-//   let message =  `Bienvenido ${usuarioStorage}`;
-//   alert(message);
-//   usuario = usuarioStorage
-
-// }else {
-//   alert("no estas en seson")
-//   user = prompt("ingrese su nombre")
-//   localStorage.getItem("user", user)
-// }
-
-
+         alert(`Bienvenido/a ${usuario}. 😄`)
+          sesion.classList.remove("login--show");
+          botonInicio.classList.add("login--borrar");
+          let bienvenido = document.createElement("div")
+          bienvenido.innerHTML = `
+          <p class="botonLogin">${usuario.toUpperCase()} |</p>`
+   
+          nombreLogeado.appendChild(bienvenido);
+      }
+      else { 
+         alert("Usuario o contraseña incorrecta, vuelva a intentarlo") }
+  });
+    
