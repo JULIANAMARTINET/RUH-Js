@@ -141,5 +141,4 @@ const actualizarCarrito = () => {
 
   totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
   totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
-}  
-
+}
