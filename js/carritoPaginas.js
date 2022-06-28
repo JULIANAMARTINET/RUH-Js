@@ -31,11 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-// const carritoLocal = localStorage.getItem("carrito")
-// carrito = JSON.parse(carritoLocal)
-
-// actualizarCarrito()
-
 const deleteCart = (productoId) => {
     const item = carrito.find((producto) => producto.id === productoId);
     const index = carrito.indexOf(item);
@@ -58,6 +53,13 @@ pagarCarrito.addEventListener('click', () => {
 
 const actualizarCarrito = () => {
    contenedorCarrito.innerHTML = ""
+   if (carrito.length === 0) {
+    let aviso = document.createElement("div");
+    aviso.innerHTML =
+    `<p class="carritoVacio"> El carrito de compras está vacío </p>`
+    contenedorCarrito.appendChild(aviso);
+  }
+else { 
    carrito.forEach((producto) => {
      let card = document.createElement("div")
      card.innerHTML = `
@@ -86,6 +88,7 @@ const actualizarCarrito = () => {
             deleteCart(producto.id)
         })
     })
+}
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
 

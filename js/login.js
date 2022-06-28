@@ -1,5 +1,4 @@
-
-// // Inicio de sesion
+// Inicio de sesion
 
 const openSesion = document.querySelector("#inicio");
 const sesion = document.querySelector("#sesion")

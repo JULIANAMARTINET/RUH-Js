@@ -106,6 +106,13 @@ pagarCarrito.addEventListener('click', () => {
 
 const actualizarCarrito = () => {
   contenedorCarrito.innerHTML = ""
+  if (carrito.length === 0) {
+     let aviso = document.createElement("div");
+     aviso.innerHTML =
+     `<p class="carritoVacio"> El carrito de compras está vacío </p>`
+     contenedorCarrito.appendChild(aviso);
+   }
+else { 
   carrito.forEach((producto) => {
     let card = document.createElement("div")
     card.innerHTML = `
@@ -119,13 +126,13 @@ const actualizarCarrito = () => {
                 <p class="card-title">${producto.nombre} </p>
                 <p class="card-text">Cant: ${producto.cantidad}</p>
                 <p class="card-text">Total: $ ${producto.totalPrecio}</p>
-             </div>   
+             </div>
           </div>
           <div class="col-md-3 d-flex">
                 <button class="btn btn-primary eliminar" id="eliminar${producto.id}">Eliminar</button>
           </div>
       </div>
-    </figure  
+    </figure
     `
     contenedorCarrito.appendChild(card);
 
@@ -134,6 +141,7 @@ const actualizarCarrito = () => {
       deleteCart(producto.id)
     })
   })
+}
 
   localStorage.setItem('carrito', JSON.stringify(carrito))
 
@@ -142,3 +150,4 @@ const actualizarCarrito = () => {
   totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
   totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
 }
+
