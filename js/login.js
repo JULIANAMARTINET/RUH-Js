@@ -19,25 +19,25 @@ openSesion.addEventListener("click", (e) => {
   const botonAcceder = document.getElementById("acceder")
   const nombreLogeado = document.getElementById("cambioLogeo")
   const botonInicio = document.getElementById("inicio")
+  
+  function bienvenida() {
+   alert(`Bienvenido/a ${usuario.value}. 😄`)
+   sesion.classList.remove("login--show");
+   botonInicio.classList.add("login--borrar");
+   let bienvenido = document.createElement("div")
+   bienvenido.innerHTML = `
+   <p class="botonLogin">${usuario.value.toUpperCase()} |</p>`
+
+   nombreLogeado.appendChild(bienvenido);
+  }
 
   // Validacion de sesion
-
+  
   botonAcceder.addEventListener("click", () => {  
      let usuario = document.querySelector('#usuario').value;
      let contraseña = document.querySelector('#password').value;
 
-     if ((usuario.toUpperCase() == "JULIANA") && (contraseña === "1234"))  {
-
-         alert(`Bienvenido/a ${usuario}. 😄`)
-          sesion.classList.remove("login--show");
-          botonInicio.classList.add("login--borrar");
-          let bienvenido = document.createElement("div")
-          bienvenido.innerHTML = `
-          <p class="botonLogin">${usuario.toUpperCase()} |</p>`
-   
-          nombreLogeado.appendChild(bienvenido);
-      }
-      else { 
-         alert("Usuario o contraseña incorrecta, vuelva a intentarlo") }
-  });
+    (usuario.toUpperCase() == "JULIANA") && (contraseña === "1234") ? bienvenida() : 
+    alert("Usuario o contraseña incorrecta, vuelva a intentarlo") });
     
+
