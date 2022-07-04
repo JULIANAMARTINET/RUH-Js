@@ -24,12 +24,7 @@ const carritoLocal = localStorage.getItem("carrito")
 
 let carrito = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('carrito')) {
-        carrito = JSON.parse(carritoLocal)
-        actualizarCarrito()
-    }
-})
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const deleteCart = (productoId) => {
     const item = carrito.find((producto) => producto.id === productoId);
@@ -52,17 +47,17 @@ pagarCarrito.addEventListener('click', () => {
 })
 
 const actualizarCarrito = () => {
-   contenedorCarrito.innerHTML = ""
-   if (carrito.length === 0) {
-    let aviso = document.createElement("div");
-    aviso.innerHTML =
-    `<p class="carritoVacio"> El carrito de compras está vacío </p>`
-    contenedorCarrito.appendChild(aviso);
-  }
-else { 
-   carrito.forEach((producto) => {
-     let card = document.createElement("div")
-     card.innerHTML = `
+    console.log("carritopag")
+    contenedorCarrito.innerHTML = ""
+    if (carrito.length === 0) {
+        let aviso = document.createElement("div");
+        aviso.innerHTML =
+            `<p class="carritoVacio"> El carrito de compras está vacío </p>`
+        contenedorCarrito.appendChild(aviso);
+    } else {
+        carrito.forEach((producto) => {
+            let card = document.createElement("div")
+            card.innerHTML = `
     <figure class="card mb-4">
       <div class="row g-0">
           <div class="col-md-3 img-carrito">
@@ -81,15 +76,14 @@ else {
       </div>
     </figure
     `
-       contenedorCarrito.appendChild(card);
+            contenedorCarrito.appendChild(card);
 
-        const botonDelete = document.getElementById(`eliminar${producto.id}`)
-        botonDelete.addEventListener('click', () => {
-            deleteCart(producto.id)
+            const botonDelete = document.getElementById(`eliminar${producto.id}`)
+            botonDelete.addEventListener('click', () => {
+                deleteCart(producto.id)
+            })
         })
-    })
-}
-
+    }
     localStorage.setItem('carrito', JSON.stringify(carrito))
 
     contadorCarrito.innerText = carrito.length;
@@ -97,3 +91,4 @@ else {
     totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
     totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
 }
+actualizarCarrito()

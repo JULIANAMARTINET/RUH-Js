@@ -42,19 +42,14 @@ const cantidadTotal = document.getElementById('cantidadTotal')
 
 let carrito = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('carrito')) {
-    carrito = JSON.parse(localStorage.getItem('carrito'))
-    actualizarCarrito()
-  }
-})
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 stockProductos.forEach((producto) => {
   let card = document.createElement("div")
   card.innerHTML = `
   <figure class="card m-4">
         <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-        <p class="card-title">${producto.nombre} </p>
+        <p class="card-title">${producto.nombre} </p> 
         <p class="card-text">$ ${producto.precio}</p>
         <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
   </figure> `
@@ -105,17 +100,18 @@ pagarCarrito.addEventListener('click', () => {
 // Funcion crear producto al carrito
 
 const actualizarCarrito = () => {
+  console.log("inicioCarrito")
   contenedorCarrito.innerHTML = ""
   if (carrito.length === 0) {
-     let aviso = document.createElement("div");
-     aviso.innerHTML =
-     `<p class="carritoVacio"> El carrito de compras está vacío </p>`
-     contenedorCarrito.appendChild(aviso);
-   }
-else { 
-  carrito.forEach((producto) => {
-    let card = document.createElement("div")
-    card.innerHTML = `
+    let aviso = document.createElement("div");
+    aviso.innerHTML =
+      `<p class="carritoVacio"> El carrito de compras está vacío </p>`
+    contenedorCarrito.appendChild(aviso);
+  } else {
+    carrito.forEach((producto) => {
+      let card = document.createElement("div")
+      console.log(producto)
+      card.innerHTML = `
     <figure class="card mb-4">
       <div class="row g-0">
           <div class="col-md-3 img-carrito">
@@ -134,14 +130,14 @@ else {
       </div>
     </figure
     `
-    contenedorCarrito.appendChild(card);
+      contenedorCarrito.appendChild(card);
 
-    const botonDelete = document.getElementById(`eliminar${producto.id}`)
-    botonDelete.addEventListener('click', () => {
-      deleteCart(producto.id)
+      const botonDelete = document.getElementById(`eliminar${producto.id}`)
+      botonDelete.addEventListener('click', () => {
+        deleteCart(producto.id)
+      })
     })
-  })
-}
+  }
 
   localStorage.setItem('carrito', JSON.stringify(carrito))
 
@@ -151,3 +147,4 @@ else {
   totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
 }
 
+actualizarCarrito ()
