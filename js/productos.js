@@ -92,7 +92,7 @@ vaciarCarrito.addEventListener('click', () => {
 // Funcion pagar carrito
 
 pagarCarrito.addEventListener('click', () => {
-  alert(`Tu compra total es de $${totalCarrito}. Gracias! 😄`);
+  Swal.fire(`Tu compra total es de $${totalCarrito}. Gracias! 🎉`)
   carrito.length = 0;
   actualizarCarrito()
 })

@@ -23,7 +23,13 @@ openSesion.addEventListener("click", (e) => {
 
 
   function bienvenida() {
-   alert(`Bienvenido/a ${usuario.value}. 😄`)
+   Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: "Hola " + usuario.value.toUpperCase(),
+      showConfirmButton: false,
+      timer: 2000
+    })
    sesion.classList.remove("login--show");
    botonInicio.classList.add("login--borrar");
    let bienvenido = document.createElement("div")
@@ -35,9 +41,14 @@ openSesion.addEventListener("click", (e) => {
 
   // Validacion de sesion
 
-  botonAcceder.addEventListener("click", () => {  
+  botonAcceder.addEventListener("click", () => {
    let usuario = document.querySelector('#usuario').value;
    let contraseña = document.querySelector('#password').value;
 
-  (usuario.toUpperCase() == "JULIANA") && (contraseña === "1234") ? bienvenida() : 
-  alert("Usuario o contraseña incorrecta, vuelva a intentarlo") });
+  (usuario.toUpperCase() == "JULIANA") && (contraseña === "1234") ? bienvenida() :
+  Swal.fire({
+   icon: 'error',
+   title: 'Oops...',
+   text: 'Usuario o contraseña incorrecta, vuelva a intentarlo',
+ })
+})

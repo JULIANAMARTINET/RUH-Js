@@ -26,25 +26,24 @@ let carrito = [];
 
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const deleteCart = (productoId) => {
-    const item = carrito.find((producto) => producto.id === productoId);
-    const index = carrito.indexOf(item);
-    carrito.splice(index, 1);
-    actualizarCarrito()
-}
+// const deleteCart = (productoId) => {
+//     const item = carrito.find((producto) => producto.id === productoId);
+//     const index = carrito.indexOf(item);
+//     carrito.splice(index, 1);
+//     actualizarCarrito()
+// }
 
-vaciarCarrito.addEventListener('click', () => {
-    carrito.length = 0
-    actualizarCarrito()
-})
+// vaciarCarrito.addEventListener('click', () => {
+//     carrito.length = 0
+//     actualizarCarrito()
+// })
 
 // Funcion pagar carrito
 
-pagarCarrito.addEventListener('click', () => {
-    alert(`Tu compra total es de $${totalCarrito}. Gracias! 😄`);
-    carrito.length = 0;
-    actualizarCarrito()
-})
+// pagarCarrito.addEventListener('click', () => {
+//     carrito.length = 0;
+//     actualizarCarrito()
+// })
 
 const actualizarCarrito = () => {
     console.log("carritopag")
