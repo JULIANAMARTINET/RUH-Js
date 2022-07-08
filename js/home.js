@@ -5,7 +5,6 @@ window.addEventListener("scroll", function () {
  
 document.addEventListener('DOMContentLoaded', function () {
       new Splide('#thumbnail-carousel', {
-        //   fixedWidth : 200,
         gap: 3,
         rewind: true,
         pagination: false,

@@ -23,4 +23,5 @@
     "dependencies": {
       "@splidejs/splide": "^4.0.1"
     }
-}
+  }
+
