@@ -1,71 +1,71 @@
 [{
-        "id": "01",
+        "id": 1,
         "nombre": "Linea Palo Santo",
         "precio": 400,
         "img": "../img/Prod-Palo-Santo.png"
     },
     {
-        "id": "02",
+        "id": 2,
         "nombre": "Linea Natural",
         "precio": 450,
         "img": "../img/prod-s-natural.png"
     },
     {
-        "id": "03",
+        "id": 3,
         "nombre": "Linea Premium",
         "precio": 500,
         "img": "../img/prod-s-premium.png"
     },
     {
-        "id": "04",
+        "id": 4,
         "nombre": "Porta Sahumerio Madera",
         "precio": 250,
         "img": "../img/prod-porta-shau.png"
     },
     {
-        "id": "05",
+        "id": 5,
         "nombre": "Ramillo de Sahumo",
         "precio": 500,
         "img": "../img/prod-sahumo-1.png"
     },
     {
-        "id": "06",
+        "id": 6,
         "nombre": "Pastillas Defumadoras",
         "precio": 600,
         "img": "../img/prod-Pastillas.png"
     },
     {
-        "id": "07",
+        "id": 77,
         "nombre": "Piramides Defumadoras",
         "precio": 600,
         "img": "../img/prod-piramide.png"
     },
     {
-        "id": "08",
+        "id": 8,
         "nombre": "Bombitas Defumadoras",
         "precio": 600,
         "img": "../img/prod-bombitas.png"
     },
     {
-        "id": "09",
+        "id": 9,
         "nombre": "Bombitas 7 Chakras",
         "precio": 700,
         "img": "../img/prod-siete-chacras.png"
     },
     {
-        "id": "10",
+        "id": 10,
         "nombre": "Sahumador de Ceramica",
         "precio": 1200,
         "img": "../img/prod-sahumadores.png"
     },
     {
-        "id": "11",
+        "id": 11,
         "nombre": "Vela Con Flores",
         "precio": 800,
         "img": "../img/prod-velas.png"
     },
     {
-        "id": "12",
+        "id": 12,
         "nombre": "Mini Velas Madera",
         "precio": 300,
         "img": "../img/prod-velitas.png"

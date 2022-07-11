@@ -22,35 +22,47 @@ const pagarCarrito = document.getElementById('pagarCarrito')
 const totalPrecioCarrito = document.getElementById('totalPrecioCarrito')
 const cantidadTotal = document.getElementById('cantidadTotal')
 
+const allProduct = document.getElementById("allProduct")
+const sahumerios = document.getElementById("sahumerios")
+const defumadores = document.getElementById("defumadores")
+const velas = document.getElementById("velas")
+
+
+// sahumerios.addEventListener("click", () => {
+//   printProductos()
+// })
+
+// sahumerios.onclick = () => {
+//   printProductos()
+// }
+
 let carrito = [];
 
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function printProductos() {
-  const productos = "../api/productos.json";
-  fetch(productos)
-    .then(resultado => resultado.json())
-    .then(data => {
-      stockProductos = data;
-      stockProductos.forEach((producto) => {
-        let card = document.createElement("div")
-        card.innerHTML = `
-  <figure class="card m-4">
-        <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-        <p class="card-title">${producto.nombre} </p> 
-        <p class="card-text">$ ${producto.precio}</p>
-        <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-  </figure> `
-
-        contenedorProductos.appendChild(card);
-        const boton = document.getElementById(`p${producto.id}`)
-        boton.addEventListener("click", () => {
-          agregarAlCarrito(producto.id)
-        })
-      })
+const printProductos = async () => {
+  const respuesta = await fetch("./api/productos.json");
+  const data = await respuesta.json();
+  stockProductos = data;
+  stockProductos.forEach((producto) => {
+    let card = document.createElement("div");
+    card.innerHTML = `
+         <figure class="card m-4">
+               <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+               <p class="card-title">${producto.nombre} </p>
+               <p class="card-text">$ ${producto.precio}</p>
+               <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+         </figure> `;
+    contenedorProductos.appendChild(card);
+    const boton = document.getElementById(`p${producto.id}`)
+    boton.addEventListener("click", () => {
+      agregarAlCarrito(producto.id)
     })
+  })
 }
-printProductos();
+
+printProductos()
+
 
 // Funcion argegar al carrito
 
@@ -79,7 +91,7 @@ const agregarAlCarrito = (productoId) => {
   } else {
     let newProducto = stockProductos.find((producto) => producto.id === productoId);
     carrito.push(new Producto(newProducto));
-    carrito[carrito.length - 1].actualizarPrecioTotal();
+    carrito[carrito.length - 1].actualizarPrecioTotal()
 
     Toastify({
       text: `${newProducto.nombre} se agrego al carrito 🎉`,
