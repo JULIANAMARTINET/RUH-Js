@@ -17,49 +17,65 @@
    }
  }
 
- .categoria-productos {
-   margin: 2em 2em 0em 2em;
-   padding: 0.5em 2em;
-   background-color: nth($colores, 7);
-   color: nth($colores, 6);
-   border-radius: 20px;
-   text-align: start;
+//  .categoria-productos {
+//    margin: 2em 2em 0em 2em;
+//    padding: 0.5em 2em;
+//    background-color: nth($colores, 7);
+//    color: nth($colores, 6);
+//    border-radius: 20px;
+//    text-align: start;
 
-   @media screen and (max-width: 575px) {
-     text-align: center;
-     margin: 0em;
-     font-size: 20px;
-   }
- }
+//    @media screen and (max-width: 575px) {
+//      text-align: center;
+//      margin: 0em;
+//      font-size: 20px;
+//    }
+//  }
 
- .productos__card {
-   max-width: 1200px;
+.productos__card { 
+  max-width: 1140px;
    margin: auto;
 
-   @include ubicacion(flex, center, center, row);
-   flex-wrap: wrap;
+ .card-row {
+   @media screen and (max-width: 991px) {
+     justify-content: center
+   }
 
-   div {
-     width: 25%;
+   .cont-card {
+    @include ubicacion(flex, center, center, column);
+    flex-wrap: nowrap;
+        padding-bottom: 1em;
+   
+     @media screen and (max-width: 575px) {
+       justify-content: center;
+     }
+   }
 
-     .card {
-       @include ubicacion(flex, center, center, column);
-       padding-bottom: 1em;
+   .card-home {
+     @media screen and (max-width: 575px) {
+       margin: 0rem 2rem;
+       width: 70%;
+       height: auto;
+     }
 
-       img {
-         padding-bottom: 1em;
-       }
-
-       .card-text {
-         text-align: center
-       }
-
-       .btn {
-         @extend %boton;
-       }
+     img {
+       padding-bottom: 0.5em;
+     }
+     .card-title {
+      text-align: center
+    }
+     .card-text {
+       text-align: center;
+       margin-bottom: 0.5em
+     }
+     .btn {
+       @extend %boton;
+       margin: 0em 2em 1em 2em;
+       padding: 0.5em 0em;
      }
    }
  }
+}
 
  #carrito-contenedor {
 
@@ -88,7 +104,7 @@
        margin-bottom: 0.2em;
      }
    }
-
+  
    .eliminar {
      align-self: center;
      background-color: nth($colores, 3);
@@ -97,24 +113,26 @@
      object-fit: contain;
    }
  }
-.totalCarrito{
-  border-bottom: solid 1.2px gray;
-  padding: 1em;
-  font-size: 18px;
-  font-weight: bold;
-}
+
+ .totalCarrito {
+   border-bottom: solid 1.2px gray;
+   padding: 1em;
+   font-size: 18px;
+   font-weight: bold;
+ }
+
  .botonCarrito {
    display: flex;
    justify-content: space-around;
 
    .pagar {
-     border: 2px solid lighten(rgb(69, 131, 69),30%);
+     border: 2px solid lighten(rgb(69, 131, 69), 30%);
      border-radius: 6px;
      font-size: 16px;
      text-align: center;
      padding: 0.5em 2em;
      margin-bottom: 1em;
-     background-color: nth($colores, 2 );
+     background-color: nth($colores, 2);
      color: rgb(90, 90, 90);
      font-weight: bold;
    }

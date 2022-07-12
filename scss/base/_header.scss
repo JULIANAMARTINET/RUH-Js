@@ -12,7 +12,7 @@ header {
         margin: auto;
 
         .logo {
-            @include ubicacion (flex, center, "center", "row");
+            @include ubicacion (flex, center, center, row);
             padding-left: 10em;
 
             .logo-img {
@@ -28,25 +28,49 @@ header {
                 font-weight: unset;
                 align-self: center;
             }
+
+            @media screen and (max-width: 700px) {
+                padding-left: 2em;
+            }
         }
 
         #boton-carrito {
             display: flex;
             justify-content: flex-end;
-            
-            width: 30%;
             padding: 0.5em;
 
             .logo-carrito {
-                width: 80%;
                 padding-right: 0.2em;
                 align-self: center;
+                width: 20%;
+
+                @media screen and (max-width: 900px) {
+                    width: 30%;
+                }
+
+                @media screen and (max-width: 770px) {
+                    width: 20%;
+                }
+
+                @media screen and (max-width: 576px) {
+                    width: 60%;
+                }
             }
 
             #contadorCarrito {
                 align-self: center;
                 color: nth($colores, 2);
             }
+        }
+
+        @media screen and (max-width: 1200px) {
+            max-width: 60rem;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 900px) {
+            max-width: 50rem;
+            margin: auto;
         }
     }
 

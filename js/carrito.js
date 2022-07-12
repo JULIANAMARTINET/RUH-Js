@@ -21,48 +21,133 @@ const vaciarCarrito = document.getElementById('vaciarCarrito')
 const pagarCarrito = document.getElementById('pagarCarrito')
 const totalPrecioCarrito = document.getElementById('totalPrecioCarrito')
 const cantidadTotal = document.getElementById('cantidadTotal')
-
-const allProduct = document.getElementById("allProduct")
+const all = document.getElementById("allProduct")
 const sahumerios = document.getElementById("sahumerios")
 const defumadores = document.getElementById("defumadores")
 const velas = document.getElementById("velas")
 
-
-// sahumerios.addEventListener("click", () => {
-//   printProductos()
-// })
-
-// sahumerios.onclick = () => {
-//   printProductos()
-// }
-
 let carrito = [];
+let stockProductos = [];
 
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const printProductos = async () => {
+stockProductos = [];
+
+const buscarProductos = async () => {
   const respuesta = await fetch("./api/productos.json");
   const data = await respuesta.json();
-  stockProductos = data;
-  stockProductos.forEach((producto) => {
-    let card = document.createElement("div");
-    card.innerHTML = `
-         <figure class="card m-4">
-               <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-               <p class="card-title">${producto.nombre} </p>
-               <p class="card-text">$ ${producto.precio}</p>
-               <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-         </figure> `;
-    contenedorProductos.appendChild(card);
-    const boton = document.getElementById(`p${producto.id}`)
-    boton.addEventListener("click", () => {
-      agregarAlCarrito(producto.id)
-    })
-  })
+
+  data.forEach((producto) => {
+    let obj = {
+      id: producto.id,
+      categoria: producto.categoria,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      imagen: producto.img
+    }
+    stockProductos.push(obj)
+  });
 }
+buscarProductos()
 
-printProductos()
+console.log(stockProductos)
 
+all.addEventListener("click", () => {
+  stockProductos.forEach((producto) => {
+    let card = document.createElement('div');
+    card.classList.add("cont-card");
+    card.classList.add("p-4");
+    card.classList.add("col-lg-3");
+    card.classList.add("col-md-4");
+    card.classList.add("col-sm-5");
+    card.innerHTML = `
+             <figure class="card card-home">
+                <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                <p class="card-title">${producto.nombre} </p>
+                <p class="card-text">$ ${producto.precio}</p>
+                <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+             </figure>
+           `;
+    contenedorProductos.appendChild(card);
+    const boton = document.getElementById(`p${producto.id}`);
+    boton.addEventListener("click", () => {
+      agregarAlCarrito(producto.id);
+    });
+  });
+})
+
+
+sahumerios.addEventListener("click", () => {
+  contenedorProductos.remove();
+  stockProductos.filter((producto) => producto.categoria === "shaumerios")
+  let card = document.createElement('div');
+  card.classList.add("cont-card")
+  card.classList.add("p-4")
+  card.classList.add("col-lg-3")
+  card.classList.add("col-md-4")
+  card.classList.add("col-sm-5")
+  card.innerHTML = `
+              <figure class="card card-home">
+                 <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                 <p class="card-title">${producto.nombre} </p>
+                 <p class="card-text">$ ${producto.precio}</p>
+                 <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+              </figure>
+            `;
+  contenedorProductos.appendChild(card);
+  const boton = document.getElementById(`p${producto.id}`)
+  boton.addEventListener("click", () => {
+    agregarAlCarrito(producto.id);
+  })
+})
+
+defumadores.addEventListener("click", () => {
+  contenedorProductos.remove();
+  stockProductos.filter((producto) => producto.categoria === "defumadores")
+  let card = document.createElement('div');
+  card.classList.add("cont-card")
+  card.classList.add("p-4")
+  card.classList.add("col-lg-3")
+  card.classList.add("col-md-4")
+  card.classList.add("col-sm-5")
+  card.innerHTML = `
+                <figure class="card card-home">
+                   <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                   <p class="card-title">${producto.nombre} </p>
+                   <p class="card-text">$ ${producto.precio}</p>
+                   <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+                </figure>
+              `;
+  contenedorProductos.appendChild(card);
+  const boton = document.getElementById(`p${producto.id}`)
+  boton.addEventListener("click", () => {
+    agregarAlCarrito(producto.id);
+  })
+})
+
+velas.addEventListener("click", () => {
+  contenedorProductos.remove();
+  stockProductos.filter((producto) => producto.categoria === "velas")
+  let card = document.createElement('div');
+  card.classList.add("cont-card")
+  card.classList.add("p-4")
+  card.classList.add("col-lg-3")
+  card.classList.add("col-md-4")
+  card.classList.add("col-sm-5")
+  card.innerHTML = `
+                  <figure class="card card-home">
+                     <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                     <p class="card-title">${producto.nombre} </p>
+                     <p class="card-text">$ ${producto.precio}</p>
+                     <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+                  </figure>
+                `;
+  contenedorProductos.appendChild(card);
+  const boton = document.getElementById(`p${producto.id}`)
+  boton.addEventListener("click", () => {
+    agregarAlCarrito(producto.id);
+  })
+})
 
 // Funcion argegar al carrito
 
