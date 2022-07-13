@@ -1,9 +1,10 @@
-class Producto {
-  constructor(producto) {
-    this.id = producto.id;
-    this.nombre = producto.nombre;
-    this.precio = producto.precio;
-    this.img = producto.img;
+class Productos {
+  constructor(id, cat, nombre, precio, img) {
+    this.id = id;
+    this.cat = cat
+    this.nombre = nombre;
+    this.precio = precio;
+    this.img = img;
     this.cantidad = 1;
   }
   addToPorfolio() {
@@ -27,7 +28,6 @@ const defumadores = document.getElementById("defumadores")
 const velas = document.getElementById("velas")
 
 let carrito = [];
-let stockProductos = [];
 
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -38,22 +38,14 @@ const buscarProductos = async () => {
   const data = await respuesta.json();
 
   data.forEach((producto) => {
-    let obj = {
-      id: producto.id,
-      categoria: producto.categoria,
-      nombre: producto.nombre,
-      precio: producto.precio,
-      imagen: producto.img
-    }
-    stockProductos.push(obj)
+    stockProductos.push(new Productos(producto.id, producto.cat, producto.nombre, producto.precio, producto.img))
   });
+  renderizacionProductos()
 }
 buscarProductos()
 
-console.log(stockProductos)
-
-all.addEventListener("click", () => {
-  stockProductos.forEach((producto) => {
+function renderizacionProductos() {
+  for (const producto of stockProductos) {
     let card = document.createElement('div');
     card.classList.add("cont-card");
     card.classList.add("p-4");
@@ -73,81 +65,53 @@ all.addEventListener("click", () => {
     boton.addEventListener("click", () => {
       agregarAlCarrito(producto.id);
     });
-  });
-})
+  }
+}
+renderizacionProductos()
 
+function filtrado(parametro) {
+  parametro.forEach(producto => {
+    let card = document.createElement('div');
+    card.classList.add("cont-card");
+    card.classList.add("p-4");
+    card.classList.add("col-lg-3");
+    card.classList.add("col-md-4");
+    card.classList.add("col-sm-5");
+    card.innerHTML = `
+             <figure class="card card-home">
+                <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                <p class="card-title">${producto.nombre} </p>
+                <p class="card-text">$ ${producto.precio}</p>
+                <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
+             </figure>
+           `;
+    contenedorProductos.appendChild(card);
+    const boton = document.getElementById(`p${producto.id}`);
+    boton.addEventListener("click", () => {
+      agregarAlCarrito(producto.id);
+    });
+  })
+}
+
+let filtro = [];
 
 sahumerios.addEventListener("click", () => {
-  contenedorProductos.remove();
-  stockProductos.filter((producto) => producto.categoria === "shaumerios")
-  let card = document.createElement('div');
-  card.classList.add("cont-card")
-  card.classList.add("p-4")
-  card.classList.add("col-lg-3")
-  card.classList.add("col-md-4")
-  card.classList.add("col-sm-5")
-  card.innerHTML = `
-              <figure class="card card-home">
-                 <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-                 <p class="card-title">${producto.nombre} </p>
-                 <p class="card-text">$ ${producto.precio}</p>
-                 <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-              </figure>
-            `;
-  contenedorProductos.appendChild(card);
-  const boton = document.getElementById(`p${producto.id}`)
-  boton.addEventListener("click", () => {
-    agregarAlCarrito(producto.id);
-  })
-})
+  contenedorProductos.innerHTML = "";
+  filtro = stockProductos.filter(producto => producto.cat === "shaumerios");
+  filtrado(filtro)
+});
 
 defumadores.addEventListener("click", () => {
-  contenedorProductos.remove();
-  stockProductos.filter((producto) => producto.categoria === "defumadores")
-  let card = document.createElement('div');
-  card.classList.add("cont-card")
-  card.classList.add("p-4")
-  card.classList.add("col-lg-3")
-  card.classList.add("col-md-4")
-  card.classList.add("col-sm-5")
-  card.innerHTML = `
-                <figure class="card card-home">
-                   <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-                   <p class="card-title">${producto.nombre} </p>
-                   <p class="card-text">$ ${producto.precio}</p>
-                   <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-                </figure>
-              `;
-  contenedorProductos.appendChild(card);
-  const boton = document.getElementById(`p${producto.id}`)
-  boton.addEventListener("click", () => {
-    agregarAlCarrito(producto.id);
-  })
-})
+  contenedorProductos.innerHTML = "";
+  filtro = stockProductos.filter(producto => producto.cat === "defumadores");
+  filtrado(filtro)
+});
 
 velas.addEventListener("click", () => {
-  contenedorProductos.remove();
-  stockProductos.filter((producto) => producto.categoria === "velas")
-  let card = document.createElement('div');
-  card.classList.add("cont-card")
-  card.classList.add("p-4")
-  card.classList.add("col-lg-3")
-  card.classList.add("col-md-4")
-  card.classList.add("col-sm-5")
-  card.innerHTML = `
-                  <figure class="card card-home">
-                     <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-                     <p class="card-title">${producto.nombre} </p>
-                     <p class="card-text">$ ${producto.precio}</p>
-                     <button class="btn btn-primary" id="p${producto.id}">Agregar al Carrito</button>
-                  </figure>
-                `;
-  contenedorProductos.appendChild(card);
-  const boton = document.getElementById(`p${producto.id}`)
-  boton.addEventListener("click", () => {
-    agregarAlCarrito(producto.id);
-  })
-})
+  contenedorProductos.innerHTML = "";
+  filtro = stockProductos.filter(producto => producto.cat === "velas");
+  filtrado(filtro)
+});
 
 // Funcion argegar al carrito
 
@@ -175,7 +139,7 @@ const agregarAlCarrito = (productoId) => {
 
   } else {
     let newProducto = stockProductos.find((producto) => producto.id === productoId);
-    carrito.push(new Producto(newProducto));
+    carrito.push(new Productos(newProducto.id, newProducto.cat, newProducto.nombre, newProducto.precio, newProducto.img));
     carrito[carrito.length - 1].actualizarPrecioTotal()
 
     Toastify({

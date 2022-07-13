@@ -1,83 +1,83 @@
 [{
         "id": 1,
-        "categoria": "sahumerios",
+        "cat": "sahumerios",
         "nombre": "Linea Palo Santo",
         "precio": 400,
         "img": "../img/Prod-Palo-Santo.png"
     },
     {
         "id": 2,
-        "categoria": "sahumerios",
+        "cat": "sahumerios",
         "nombre": "Linea Natural",
         "precio": 450,
         "img": "../img/prod-s-natural.png"
     },
     {
         "id": 3,
-        "categoria": "sahumerios",
+        "cat": "sahumerios",
         "nombre": "Linea Premium",
         "precio": 500,
         "img": "../img/prod-s-premium.png"
     },
     {
         "id": 4,
-        "categoria": "sahumerios",
+        "cat": "sahumerios",
         "nombre": "Porta Sahumerio Madera",
         "precio": 250,
         "img": "../img/prod-porta-shau.png"
     },
     {
         "id": 5,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Ramillo de Sahumo",
         "precio": 500,
         "img": "../img/prod-sahumo-1.png"
     },
     {
         "id": 6,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Pastillas Defumadoras",
         "precio": 600,
         "img": "../img/prod-Pastillas.png"
     },
     {
         "id": 7,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Piramides Defumadoras",
         "precio": 600,
         "img": "../img/prod-piramide.png"
     },
     {
         "id": 8,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Bombitas Defumadoras",
         "precio": 600,
         "img": "../img/prod-bombitas.png"
     },
     {
         "id": 9,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Bombitas 7 Chakras",
         "precio": 700,
         "img": "../img/prod-siete-chacras.png"
     },
     {
         "id": 10,
-        "categoria": "defumadores",
+        "cat": "defumadores",
         "nombre": "Sahumador de Ceramica",
         "precio": 1200,
         "img": "../img/prod-sahumadores.png"
     },
     {
         "id": 11,
-        "categoria": "velas",
+        "cat": "velas",
         "nombre": "Vela Con Flores",
         "precio": 800,
         "img": "../img/prod-velas.png"
     },
     {
         "id": 12,
-        "categoria": "velas",
+        "cat": "velas",
         "nombre": "Mini Velas Madera",
         "precio": 300,
         "img": "../img/prod-velitas.png"
