@@ -823,7 +823,6 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
 }
 #carrito-contenedor .card .row .img-carrito img {
   object-fit: cover;
-  height: 100%;
 }
 #carrito-contenedor .card .row .card-detalle {
   padding: 0em 1em;
