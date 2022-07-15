@@ -27,21 +27,20 @@ const sahumerios = document.getElementById("sahumerios")
 const defumadores = document.getElementById("defumadores")
 const velas = document.getElementById("velas")
 
-let carrito = [];
-carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+// Productos disponibles en la pagina
 
 stockProductos = [];
-
 const buscarProductos = async () => {
   const respuesta = await fetch("./api/productos.json");
   const data = await respuesta.json();
-
   data.forEach((producto) => {
     stockProductos.push(new Productos(producto.id, producto.cat, producto.nombre, producto.precio, producto.img))
   });
   renderizacionProductos()
 }
 buscarProductos()
+
+// renderizacdo de todos los productos 
 
 function renderizacionProductos() {
   for (const producto of stockProductos) {
@@ -67,6 +66,8 @@ function renderizacionProductos() {
   }
 }
 renderizacionProductos()
+
+// filtros por categoria de productos y actualizacion de renderizado
 
 function filtrado(parametro) {
   parametro.forEach(producto => {
@@ -110,6 +111,10 @@ velas.addEventListener("click", () => {
   filtrado(filtro)
 });
 
+// Carrito de compras
+let carrito = [];
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 // Funcion argegar al carrito
 
 const agregarAlCarrito = (productoId) => {
@@ -150,14 +155,17 @@ const agregarAlCarrito = (productoId) => {
   actualizarCarrito()
 }
 
+// Funcion eliminar item carrito
 const deleteCart = (productoId) => {
   const item = carrito.find((producto) => producto.id === productoId);
   const index = carrito.indexOf(item);
   carrito.splice(index, 1);
   actualizarCarrito()
   if (carrito.length === 0) {
-    btnCarrito.classList.remove("apareceBtn");}
+    btnCarrito.classList.remove("apareceBtn")}
 }
+
+// Funcion eliminar todos los item del carrito
 vaciarCarrito.addEventListener('click', () => {
   carrito.length = 0
   btnCarrito.classList.remove("apareceBtn");
@@ -165,7 +173,6 @@ vaciarCarrito.addEventListener('click', () => {
 })
 
 // Funcion pagar carrito
-
 pagarCarrito.addEventListener('click', () => {
   Swal.fire(`Tu compra total es de $${totalCarrito}, dejanos tus datos y te contactaremos en la brevedad. Gracias! 🎉`)
   carrito.length = 0;
@@ -175,7 +182,6 @@ pagarCarrito.addEventListener('click', () => {
 })
 
 // Funcion crear producto al carrito
-
 const actualizarCarrito = () => {
   contenedorCarrito.innerHTML = "";
   if (carrito.length === 0) {
@@ -187,6 +193,7 @@ const actualizarCarrito = () => {
     carrito.forEach((producto) => {
       let card = document.createElement("div")
       card.classList.add("card");
+      card.classList.add("my-4");
       card.innerHTML = `
       <div class="row g-0">
           <div class="col-md-3 col-sm-3 col-3 img-carrito">
@@ -213,13 +220,10 @@ const actualizarCarrito = () => {
     })
     btnCarrito.classList.add("apareceBtn");
   }
-
   localStorage.setItem('carrito', JSON.stringify(carrito))
 
   contadorCarrito.innerText = carrito.length
-
   totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
   totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
 }
-
 actualizarCarrito()

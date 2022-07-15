@@ -1,11 +1,13 @@
 // Inicio de sesion
-
 const openSesion = document.querySelector("#inicio");
 const sesion = document.querySelector("#sesion")
 const closeSesion = document.querySelector("#close")
+const botonAcceder = document.getElementById("acceder")
+const nombreLogeado = document.getElementById("cambioLogeo")
+const botonInicio = document.getElementById("inicio")
+const cusuarioLocal = sessionStorage.getItem("usuarios")
 
 // Clase para mostrar y cerrar MODAL
-
 openSesion.addEventListener("click", (e) => {
   e.preventDefault();
   sesion.classList.add("login--show");
@@ -15,11 +17,6 @@ closeSesion.addEventListener("click", (e) => {
   e.preventDefault();
   sesion.classList.remove("login--show");
 });
-
-const botonAcceder = document.getElementById("acceder")
-const nombreLogeado = document.getElementById("cambioLogeo")
-const botonInicio = document.getElementById("inicio")
-const cusuarioLocal = sessionStorage.getItem("usuarios")
 
 let usuarios = [];
 usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
@@ -31,9 +28,7 @@ botonAcceder.addEventListener("click", () => {
   let contraseña = document.querySelector('#password').value;
 
   if ((usuario.toUpperCase() == "JULIANA") && (contraseña === "1234")) {
-
     usuarios.push("juliana");
-
     Swal.fire({
       position: 'top-center',
       icon: 'success',
@@ -52,8 +47,8 @@ botonAcceder.addEventListener("click", () => {
   }
 })
 
+// funcion para cerrar sesion
 const logout = () => {
-
   Swal.fire({
     title: '¿Quieres cerrar sesion?',
     icon: 'warning',
@@ -80,6 +75,7 @@ const logout = () => {
   })
 }
 
+// funcion de bienvenida y logeo exitoso
 function bienvenida() {
   if (usuarios.length === 1) {
     sesion.classList.remove("login--show");
@@ -93,7 +89,6 @@ function bienvenida() {
       logout()
     })
   }
-
   sessionStorage.setItem('usuarios', JSON.stringify(usuarios))
 }
 bienvenida()

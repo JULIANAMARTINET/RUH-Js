@@ -23,10 +23,11 @@ const cantidadTotal = document.getElementById('cantidadTotal')
 const btnCarrito = document.getElementById("btnCarrito")
 const carritoLocal = localStorage.getItem("carrito")
 
+// Carrito de compras
 let carrito = [];
-
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// Funcion eliminar item carrito
 const deleteCart = (productoId) => {
     const item = carrito.find((producto) => producto.id === productoId);
     const index = carrito.indexOf(item);
@@ -36,7 +37,7 @@ const deleteCart = (productoId) => {
         btnCarrito.classList.remove("apareceBtn")
     }
 }
-
+// Funcion eliminar todos los item del carrito
 vaciarCarrito.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
@@ -44,7 +45,6 @@ vaciarCarrito.addEventListener('click', () => {
 })
 
 // Funcion pagar carrito
-
 pagarCarrito.addEventListener('click', () => {
     Swal.fire(`Tu compra total es de $${totalCarrito}, dejanos tus datos y te contactaremos en la brevedad. Gracias! 🎉`)
     carrito.length = 0;
@@ -55,6 +55,7 @@ pagarCarrito.addEventListener('click', () => {
     }, 5000);
 })
 
+// Funcion crear producto al carrito
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
     if (carrito.length === 0) {
@@ -64,25 +65,26 @@ const actualizarCarrito = () => {
         contenedorCarrito.appendChild(aviso);
     } else {
         carrito.forEach((producto) => {
-            let card = document.createElement("div")
-            card.classList.add("card");
-            card.innerHTML = `
-      <div class="row g-0">
-          <div class="col-md-3 col-sm-3 col-3 img-carrito img-carrito">
-              <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.nombre}">
+          let card = document.createElement("div")
+          card.classList.add("card");
+          card.classList.add("my-4");
+          card.innerHTML = `
+          <div class="row g-0">
+              <div class="col-md-3 col-sm-3 col-3 img-carrito">
+                  <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.nombre}">
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                 <div class="card-detalle">
+                    <p class="card-title">${producto.nombre} </p>
+                    <p class="card-text">Cant: ${producto.cantidad}</p>
+                    <p class="card-text">Total: $ ${producto.totalPrecio}</p>
+                 </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-3 d-flex">
+                    <button class="btn btn-primary eliminar" id="eliminar${producto.id}">Eliminar</button>
+              </div>
           </div>
-          <div class="col-md-6 col-sm-6 col-6">
-             <div class="card-detalle">
-                <p class="card-title">${producto.nombre} </p>
-                <p class="card-text">Cant: ${producto.cantidad}</p>
-                <p class="card-text">Total: $ ${producto.totalPrecio}</p>
-             </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-3 img-carrito d-flex">
-                <button class="btn btn-primary eliminar" id="eliminar${producto.id}">Eliminar</button>
-          </div>
-      </div>
-    `
+        `
             contenedorCarrito.appendChild(card);
 
             const botonDelete = document.getElementById(`eliminar${producto.id}`)
@@ -95,7 +97,6 @@ const actualizarCarrito = () => {
     localStorage.setItem('carrito', JSON.stringify(carrito))
 
     contadorCarrito.innerText = carrito.length;
-
     totalPrecioCarrito.innerText = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
     totalCarrito = carrito.reduce((total, elemento) => total + elemento.totalPrecio, 0);
 }

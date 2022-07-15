@@ -79,8 +79,6 @@
    }
 
    .card {
-     height: 100%;
-
      .row {
        height: 100%;
 
@@ -88,7 +86,7 @@
          height: 100%;
 
          img {
-           object-fit: cover;
+          object-fit: cover;
            height: 100%;
          }
        }
@@ -111,8 +109,8 @@
          align-self: center;
          background-color: nth($colores, 3);
          border: none;
-         height: 100%;
          object-fit: contain;
+         height: 100%;
 
          &:focus {
            box-shadow: none;

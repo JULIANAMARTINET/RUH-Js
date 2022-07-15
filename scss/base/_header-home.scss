@@ -69,22 +69,21 @@
 
             @media screen and (max-width: 400px) {
                 @include ubicacion (flex, flex-end, center, column);
-              padding: 1em 0em;
+                padding: 1em 0em;
             }
 
             .botonLogin {
-                 color: nth($colores, 2);
+                color: nth($colores, 2);
                 align-self: center;
                 margin-bottom: 0.1em;
                 cursor: pointer;
-         
 
-                .iniciar  {
+                .iniciar {
                     margin-bottom: 0em;
 
-                        @media screen and (max-width: 546px) {
-                            font-size: 0.8em;
-                        }
+                    @media screen and (max-width: 546px) {
+                        font-size: 0.8em;
+                    }
                 }
             }
 
@@ -97,8 +96,10 @@
                 justify-content: center;
                 width: 25%;
                 padding: 0.5em;
+
                 &:focus {
-                    box-shadow: none !important;}
+                    box-shadow: none !important;
+                }
 
                 @media screen and (max-width: 576px) {
                     width: auto;

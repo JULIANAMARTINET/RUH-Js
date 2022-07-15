@@ -813,9 +813,6 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   font-size: 16px;
   text-align: center;
 }
-#carrito-contenedor .card {
-  height: 100%;
-}
 #carrito-contenedor .card .row {
   height: 100%;
 }
@@ -841,8 +838,8 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   align-self: center;
   background-color: rgb(219, 206, 161);
   border: none;
-  height: 100%;
   object-fit: contain;
+  height: 100%;
 }
 #carrito-contenedor .card .row .eliminar:focus {
   box-shadow: none;
@@ -1355,10 +1352,15 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   display: flex;
   justify-content: space-between;
 }
-.login-container .login-img {
+.login-container .login-close .login-img {
   width: 100%;
   padding-right: 1.5em;
   padding-top: 0.8em;
+}
+@media screen and (max-width: 575px) {
+  .login-container .login-close .login-img {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
