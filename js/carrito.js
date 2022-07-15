@@ -31,7 +31,7 @@ const velas = document.getElementById("velas")
 
 stockProductos = [];
 const buscarProductos = async () => {
-  const respuesta = await fetch("./api/productos.json");
+  const respuesta = await fetch("../api/productos.json");
   const data = await respuesta.json();
   data.forEach((producto) => {
     stockProductos.push(new Productos(producto.id, producto.cat, producto.nombre, producto.precio, producto.img))
