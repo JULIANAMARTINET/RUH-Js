@@ -32,35 +32,62 @@ header {
             @media screen and (max-width: 700px) {
                 padding-left: 2em;
             }
+
+            @media screen and (max-width: 576px) {
+                @include ubicacion (flex, flex-start, center, row);
+                padding-left: 0em;
+            }
         }
 
-        #boton-carrito {
-            display: flex;
-            justify-content: flex-end;
-            padding: 0.5em;
+        .cuenta {
+            @include ubicacion (flex, center, center, row);
 
-            .logo-carrito {
-                padding-right: 0.2em;
-                align-self: center;
-                width: 20%;
-
-                @media screen and (max-width: 900px) {
-                    width: 30%;
-                }
-
-                @media screen and (max-width: 770px) {
-                    width: 20%;
-                }
-
-                @media screen and (max-width: 576px) {
-                    width: 60%;
-                }
+            @media screen and (max-width: 400px) {
+                @include ubicacion (flex, center, center, column);
+                padding: 1em 0em;
             }
 
-            #contadorCarrito {
-                align-self: center;
+            .botonLogin {
                 color: nth($colores, 2);
+                align-self: center;
+                margin-bottom: 0.1em;
+                padding-right: 0.4em;
+                cursor: pointer;
+
+                p {
+                    margin-bottom: 0em
+                }
             }
+
+            .login--borrar {
+                display: none;
+            }
+            
+            .btnCarrito {
+                display: flex;
+                justify-content: center;
+                width: 25%;
+                padding: 0.5em;
+
+                &:focus {
+                    box-shadow: none !important;}
+                
+                @media screen and (max-width: 576px) {
+                    width: auto;
+                    padding: 0em;
+                }
+
+                .logo-carrito {
+                    padding-right: 0.2em;
+                    align-self: center;
+                }
+
+                .contCarrito {
+                    align-self: center;
+                    color: nth($colores, 2);
+                }
+            }
+
         }
 
         @media screen and (max-width: 1200px) {
@@ -118,12 +145,19 @@ header {
         --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    .dropdown-menu {
-        background-color: nth($colores, 1)
-    }
-
-    .dropdown-item {
+    .categoria {
+        background-color: nth($colores, 1);
         color: nth($colores, 2);
+
+        .cat-item {
+            padding: 0.2em 0.5em;
+
+            &:hover {
+                background-color: nth($colores, 2);
+                color: black;
+                cursor: pointer
+            }
+        }
     }
 
     .navbar-toggler {
@@ -134,5 +168,6 @@ header {
         font-size: 12px;
     }
 }
+
 
 /* ------------------------------- fin nav ------------------------------- */

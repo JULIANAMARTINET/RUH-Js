@@ -65,16 +65,26 @@
 
         .cuenta {
             visibility: hidden;
-            display: flex;
+            @include ubicacion (flex, center, center, row);
+
+            @media screen and (max-width: 400px) {
+                @include ubicacion (flex, flex-end, center, column);
+              padding: 1em 0em;
+            }
 
             .botonLogin {
-                color: nth($colores, 2);
+                 color: nth($colores, 2);
                 align-self: center;
                 margin-bottom: 0.1em;
                 cursor: pointer;
+         
 
-                p {
-                    margin-bottom: 0em
+                .iniciar  {
+                    margin-bottom: 0em;
+
+                        @media screen and (max-width: 546px) {
+                            font-size: 0.8em;
+                        }
                 }
             }
 
@@ -82,19 +92,25 @@
                 display: none;
             }
 
-            #boton-carrito {
+            .btnCarrito {
                 display: flex;
                 justify-content: center;
-                width: 30%;
+                width: 25%;
                 padding: 0.5em;
+                &:focus {
+                    box-shadow: none !important;}
+
+                @media screen and (max-width: 576px) {
+                    width: auto;
+                    padding: 0em;
+                }
 
                 .logo-carrito {
-                    width: 70%;
                     padding-right: 0.2em;
                     align-self: center;
                 }
 
-                #contadorCarrito {
+                .contCarrito {
                     align-self: center;
                     color: nth($colores, 2);
                 }
@@ -133,12 +149,6 @@
 
         .cuenta {
             visibility: visible;
-
-            .iniciar {
-                @media screen and (max-width: 546px) {
-                    font-size: 1em;
-                }
-            }
         }
 
         .dropdown-menu {
@@ -189,10 +199,6 @@
     .nav-link:hover {
         color: nth($colores, 4);
         --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .dropdown-menu {
-        background-color: transparent
     }
 
     .navbar-toggler {

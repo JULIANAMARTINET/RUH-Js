@@ -33,16 +33,23 @@
 
     <header>
         <div class="row barra">
-            <div class="col-md-10 col-sm-9 col-10 logo">
+            <div class="col-md-10 col-sm-9 col-8 logo">
                 <a href="index.html">
                     <img src="logos/logo-ovalado.png" alt="Logo" class="logo-img" /></a>
                 <h1>Ruh - Esencia</h1>
             </div>
-            <button id="boton-carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="col-md-2 col-sm-3 col-2 d-flex align-items-center justify-content-end btn">
-                    <img src="logos/carrito.svg" alt="Carrito de compras" class="logo-carrito"> <i
-                        class="fas fa-shopping-cart">
-                    </i><span id="contadorCarrito">0</span>
-            </button>
+            <div class="col-md-2 col-sm-3 col-4 cuenta" id="cuenta">
+                <div id="cambioLogeo" class="botonLogin">
+                    <p id="inicio" class="iniciar">Login |</p>
+                </div>
+                <button id="boton-carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                    class="col-md-4 col-sm-3 col-2 d-flex align-items-center justify-content-end btn btnCarrito">
+                    <img src="logos/carrito.svg" alt="Carrito de compras" class="logo-carrito"> 
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="contadorCarrito" class="contCarrito">0</span>
+                </button>
+            </div>
         </div>
 
         <!-- nav  -->
@@ -64,17 +71,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="allProduct" href="productos.html"> Productos </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item" id="sahumerios" href="productos.html">Sahumerios</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" id="defumadores" href="productos.html">Sahumos y
-                                        Defumadores</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" id="velas" href="productos.html">Velas</a>
-                                </li>
+                            <ul class="dropdown-menu categoria" aria-labelledby="navbarDropdownMenuLink">
+                                <li id="sahumerios" class="cat-item">Sahumerios</li>
+                                <li id="defumadores" class="cat-item">Sahumos y Defumadores</li>
+                                <li id="velas" class="cat-item">Velas</li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -101,12 +101,6 @@
     <section class="container productos__card">
         <div id="contenedor-productos" class="row card-row"></div>
     </section>
-    <!--  
-            <h3 class="categoria-productos" id="sahumerios">* Sahumerios</h3>
-            <h3 class="categoria-productos" id="sahumos">* Sahumos y Defumadores</h3>
-            <h3 class="categoria-productos" id="velas">* Velas Aromáticas</h3>
-             -->
-
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -117,7 +111,7 @@
         <p class="totalCarrito">
             Precio total: $<span id="totalPrecioCarrito">0</span>
         </p>
-        <div class="botonCarrito">
+        <div class="botonCarrito" id="btnCarrito">
             <button id="pagarCarrito" class="pagar" type="button" class="btn">
                 Pagar
             </button>
@@ -126,6 +120,37 @@
             </button>
         </div>
     </div>
+
+    <section class="login" id="sesion">
+        <div class="login-container">
+            <form action="php/form.php" method="POST" class="contacto-form">
+                <div class="login-title">Iniciar sesion</div>
+                <div class="form-row">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" name="nombre">
+                </div>
+                <div class="form-row">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="form-check">
+                    <input class=" form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">Recordarme
+                    </label>
+                </div>
+                <div class="btn">
+                    <button class="login-btn" type="button" id="acceder">Acceder</button>
+                </div>
+            </form>
+            <div class="login-close">
+                <div class="cerrar">
+                    <p></p>
+                    <button type="button" class="btn-close" aria-label="Close" id="close"></button>
+                </div>
+                <img src="img/login.png" alt="" class="login-img">
+            </div>
+        </div>
+    </section>
 
     <!-- footer  -->
 
@@ -186,6 +211,7 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/login.js"></script>
     <script src="js/carrito.js"></script>
     <div class="disclaimer"></div>
 </body>

@@ -1,4 +1,3 @@
-
 // Inicio de sesion
 
 const openSesion = document.querySelector("#inicio");
@@ -8,47 +7,93 @@ const closeSesion = document.querySelector("#close")
 // Clase para mostrar y cerrar MODAL
 
 openSesion.addEventListener("click", (e) => {
-   e.preventDefault();
- sesion.classList.add("login--show");
+  e.preventDefault();
+  sesion.classList.add("login--show");
 });
 
- closeSesion.addEventListener("click", (e) => {
+closeSesion.addEventListener("click", (e) => {
   e.preventDefault();
-   sesion.classList.remove("login--show");
-  });
+  sesion.classList.remove("login--show");
+});
 
-  const botonAcceder = document.getElementById("acceder")
-  const nombreLogeado = document.getElementById("cambioLogeo")
-  const botonInicio = document.getElementById("inicio")
+const botonAcceder = document.getElementById("acceder")
+const nombreLogeado = document.getElementById("cambioLogeo")
+const botonInicio = document.getElementById("inicio")
+const cusuarioLocal = sessionStorage.getItem("usuarios")
 
+let usuarios = [];
+usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
 
-  function bienvenida() {
-   Swal.fire({
+// Validacion de sesion
+
+botonAcceder.addEventListener("click", () => {
+  let usuario = document.querySelector('#usuario').value;
+  let contraseña = document.querySelector('#password').value;
+
+  if ((usuario.toUpperCase() == "JULIANA") && (contraseña === "1234")) {
+
+    usuarios.push("juliana");
+
+    Swal.fire({
       position: 'top-center',
       icon: 'success',
-      title: "Hola " + usuario.value.toUpperCase(),
+      title: "Hola " + usuario.toUpperCase(),
       showConfirmButton: false,
       timer: 2000
+    });
+    bienvenida()
+
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Usuario o contraseña incorrecta, vuelva a intentarlo',
     })
-   sesion.classList.remove("login--show");
-   botonInicio.classList.add("login--borrar");
-   let bienvenido = document.createElement("div")
-   bienvenido.innerHTML = `
-   <p class="botonLogin">${usuario.value.toUpperCase()} |</p>`
-   nombreLogeado.appendChild(bienvenido);
-  sessionStorage.setItem('usuario', JSON.stringify(usuario))
+  }
+})
+
+const logout = () => {
+
+  Swal.fire({
+    title: '¿Quieres cerrar sesion?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      usuarios.shift()
+      Swal.fire({
+        position: 'top-center',
+        title: 'Sesion finalizada',
+        text: 'Te esperamos Pronto!!',
+        showConfirmButton: false,
+        icon: 'success',
+        timer: 3000
+      });
+      bienvenida()
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
+    }
+  })
+}
+
+function bienvenida() {
+  if (usuarios.length === 1) {
+    sesion.classList.remove("login--show");
+    botonInicio.classList.add("login--borrar");
+    let bienvenido = document.createElement("div")
+    bienvenido.innerHTML = `
+   <p id="logout" class="botonLogin">${usuarios[0].toUpperCase()} |</p>`
+    nombreLogeado.appendChild(bienvenido);
+    const btnLogout = document.getElementById(`logout`)
+    btnLogout.addEventListener('click', () => {
+      logout()
+    })
   }
 
-  // Validacion de sesion
-
-  botonAcceder.addEventListener("click", () => {
-   let usuario = document.querySelector('#usuario').value;
-   let contraseña = document.querySelector('#password').value;
-
-  (usuario.toUpperCase() == "JULIANA") && (contraseña === "1234") ? bienvenida() :
-  Swal.fire({
-   icon: 'error',
-   title: 'Oops...',
-   text: 'Usuario o contraseña incorrecta, vuelva a intentarlo',
- })
-})
+  sessionStorage.setItem('usuarios', JSON.stringify(usuarios))
+}
+bienvenida()

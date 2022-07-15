@@ -79,32 +79,63 @@ header .row .logo h1 {
     padding-left: 2em;
   }
 }
-header .row #boton-carrito {
+@media screen and (max-width: 576px) {
+  header .row .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 0em;
+  }
+}
+header .row .cuenta {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+@media screen and (max-width: 400px) {
+  header .row .cuenta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em 0em;
+  }
+}
+header .row .cuenta .botonLogin {
+  color: rgb(243, 243, 225);
+  align-self: center;
+  margin-bottom: 0.1em;
+  padding-right: 0.4em;
+  cursor: pointer;
+}
+header .row .cuenta .botonLogin p {
+  margin-bottom: 0em;
+}
+header .row .cuenta .login--borrar {
+  display: none;
+}
+header .row .cuenta .btnCarrito {
+  display: flex;
+  justify-content: center;
+  width: 25%;
   padding: 0.5em;
 }
-header .row #boton-carrito .logo-carrito {
-  padding-right: 0.2em;
-  align-self: center;
-  width: 20%;
-}
-@media screen and (max-width: 900px) {
-  header .row #boton-carrito .logo-carrito {
-    width: 30%;
-  }
-}
-@media screen and (max-width: 770px) {
-  header .row #boton-carrito .logo-carrito {
-    width: 20%;
-  }
+header .row .cuenta .btnCarrito:focus {
+  box-shadow: none !important;
 }
 @media screen and (max-width: 576px) {
-  header .row #boton-carrito .logo-carrito {
-    width: 60%;
+  header .row .cuenta .btnCarrito {
+    width: auto;
+    padding: 0em;
   }
 }
-header .row #boton-carrito #contadorCarrito {
+header .row .cuenta .btnCarrito .logo-carrito {
+  padding-right: 0.2em;
+  align-self: center;
+}
+header .row .cuenta .btnCarrito .contCarrito {
   align-self: center;
   color: rgb(243, 243, 225);
 }
@@ -156,11 +187,17 @@ header .nav-link:hover {
   color: rgb(37, 36, 36);
   --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-header .dropdown-menu {
+header .categoria {
   background-color: #747c58;
-}
-header .dropdown-item {
   color: rgb(243, 243, 225);
+}
+header .categoria .cat-item {
+  padding: 0.2em 0.5em;
+}
+header .categoria .cat-item:hover {
+  background-color: rgb(243, 243, 225);
+  color: black;
+  cursor: pointer;
 }
 header .navbar-toggler {
   margin: 0.25rem;
@@ -241,6 +278,18 @@ header .navbar-toggler {
 #header-home .barra .cuenta {
   visibility: hidden;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+@media screen and (max-width: 400px) {
+  #header-home .barra .cuenta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em 0em;
+  }
 }
 #header-home .barra .cuenta .botonLogin {
   color: rgb(243, 243, 225);
@@ -248,24 +297,37 @@ header .navbar-toggler {
   margin-bottom: 0.1em;
   cursor: pointer;
 }
-#header-home .barra .cuenta .botonLogin p {
+#header-home .barra .cuenta .botonLogin .iniciar {
   margin-bottom: 0em;
+}
+@media screen and (max-width: 546px) {
+  #header-home .barra .cuenta .botonLogin .iniciar {
+    font-size: 0.8em;
+  }
 }
 #header-home .barra .cuenta .login--borrar {
   display: none;
 }
-#header-home .barra .cuenta #boton-carrito {
+#header-home .barra .cuenta .btnCarrito {
   display: flex;
   justify-content: center;
-  width: 30%;
+  width: 25%;
   padding: 0.5em;
 }
-#header-home .barra .cuenta #boton-carrito .logo-carrito {
-  width: 70%;
+#header-home .barra .cuenta .btnCarrito:focus {
+  box-shadow: none !important;
+}
+@media screen and (max-width: 576px) {
+  #header-home .barra .cuenta .btnCarrito {
+    width: auto;
+    padding: 0em;
+  }
+}
+#header-home .barra .cuenta .btnCarrito .logo-carrito {
   padding-right: 0.2em;
   align-self: center;
 }
-#header-home .barra .cuenta #boton-carrito #contadorCarrito {
+#header-home .barra .cuenta .btnCarrito .contCarrito {
   align-self: center;
   color: rgb(243, 243, 225);
 }
@@ -297,11 +359,6 @@ header .navbar-toggler {
 }
 #header-home.down .cuenta {
   visibility: visible;
-}
-@media screen and (max-width: 546px) {
-  #header-home.down .cuenta .iniciar {
-    font-size: 1em;
-  }
 }
 #header-home.down .dropdown-menu {
   background-color: #747c58;
@@ -342,9 +399,6 @@ header .navbar-toggler {
 #header-home .nav-link:hover {
   color: rgba(163, 165, 158, 0.4666666667);
   --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-#header-home .dropdown-menu {
-  background-color: transparent;
 }
 #header-home .navbar-toggler {
   margin: 0.25em;
@@ -749,6 +803,9 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   margin: 0em 2em 1em 2em;
   padding: 0.5em 0em;
 }
+.productos__card .card-row .card-home .btn:focus {
+  box-shadow: none !important;
+}
 
 #carrito-contenedor .carritoVacio {
   border: 2px solid rgb(219, 206, 161);
@@ -756,27 +813,39 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   font-size: 16px;
   text-align: center;
 }
-#carrito-contenedor .img-carrito {
+#carrito-contenedor .card {
+  height: 100%;
+}
+#carrito-contenedor .card .row {
+  height: 100%;
+}
+#carrito-contenedor .card .row .img-carrito {
+  height: 100%;
+}
+#carrito-contenedor .card .row .img-carrito img {
   object-fit: cover;
   height: 100%;
 }
-#carrito-contenedor .card-detalle {
+#carrito-contenedor .card .row .card-detalle {
   padding: 0em 1em;
 }
-#carrito-contenedor .card-detalle .card-title {
+#carrito-contenedor .card .row .card-detalle .card-title {
   font-weight: 700;
   border-bottom: 1px gray solid;
   text-align: start;
 }
-#carrito-contenedor .card-detalle .card-text {
+#carrito-contenedor .card .row .card-detalle .card-text {
   margin-bottom: 0.2em;
 }
-#carrito-contenedor .eliminar {
+#carrito-contenedor .card .row .eliminar {
   align-self: center;
   background-color: rgb(219, 206, 161);
   border: none;
   height: 100%;
   object-fit: contain;
+}
+#carrito-contenedor .card .row .eliminar:focus {
+  box-shadow: none;
 }
 
 .totalCarrito {
@@ -787,10 +856,14 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
 }
 
 .botonCarrito {
+  display: none;
+}
+
+.apareceBtn {
   display: flex;
   justify-content: space-around;
 }
-.botonCarrito .pagar {
+.apareceBtn .pagar {
   border: 2px solid #98c998;
   border-radius: 6px;
   font-size: 16px;
@@ -801,7 +874,7 @@ footer .foot .foot_contacto .box-contacto .foot_contacto_iconos a {
   color: rgb(90, 90, 90);
   font-weight: bold;
 }
-.botonCarrito .borrarCarrito {
+.apareceBtn .borrarCarrito {
   border: 2px solid #ff9999;
   border-radius: 6px;
   font-size: 16px;
