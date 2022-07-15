@@ -127,13 +127,14 @@ header .row .cuenta .btnCarrito:focus {
 }
 @media screen and (max-width: 576px) {
   header .row .cuenta .btnCarrito {
-    width: auto;
     padding: 0em;
+    width: 20%;
   }
 }
 header .row .cuenta .btnCarrito .logo-carrito {
   padding-right: 0.2em;
   align-self: center;
+  width: 100%;
 }
 header .row .cuenta .btnCarrito .contCarrito {
   align-self: center;
@@ -319,13 +320,14 @@ header .navbar-toggler {
 }
 @media screen and (max-width: 576px) {
   #header-home .barra .cuenta .btnCarrito {
-    width: auto;
     padding: 0em;
+    width: 20%;
   }
 }
 #header-home .barra .cuenta .btnCarrito .logo-carrito {
   padding-right: 0.2em;
   align-self: center;
+  width: 100%;
 }
 #header-home .barra .cuenta .btnCarrito .contCarrito {
   align-self: center;

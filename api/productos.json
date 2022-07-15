@@ -3,7 +3,7 @@
         "cat": "sahumerios",
         "nombre": "Linea Palo Santo",
         "precio": 400,
-        "img": "../img/Prod-Palo-Santo.png"
+        "img": "../../img/Prod-Palo-Santo.png"
     },
     {
         "id": 2,
