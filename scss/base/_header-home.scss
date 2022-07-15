@@ -26,6 +26,7 @@
 
             @media screen and (max-width: 546px) {
                 padding-left: 0em;
+                right: 0em;
             }
 
             a {
@@ -58,6 +59,10 @@
 
                 @media screen and (max-width: 976px) {
                     font-size: 1.5em;
+                    margin-bottom: 1em;
+                }
+                @media screen and (max-width: 546px) {
+                    font-size: 1.25em;
                     margin-bottom: 1em;
                 }
             }

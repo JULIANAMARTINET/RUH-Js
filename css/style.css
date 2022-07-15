@@ -243,6 +243,7 @@ header .navbar-toggler {
 @media screen and (max-width: 546px) {
   #header-home .barra .logo {
     padding-left: 0em;
+    right: 0em;
   }
 }
 #header-home .barra .logo a {
@@ -273,6 +274,12 @@ header .navbar-toggler {
 @media screen and (max-width: 976px) {
   #header-home .barra .logo h1 {
     font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+}
+@media screen and (max-width: 546px) {
+  #header-home .barra .logo h1 {
+    font-size: 1.25em;
     margin-bottom: 1em;
   }
 }
